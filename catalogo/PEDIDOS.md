@@ -41,6 +41,7 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
 | 5 | Fotos nuevas para los dos bloques del **MR16 LED** (pág. 5): `TZ-MR16-5W-3K.webp`, `TZ-MR16-5W-6K.webp` | las 2 guardadas |
 | 6 | Foto nueva para **`TZ-AR70-7W-DIM-3K`** (AR70 LED, pág. 5, slot inferior) → `fotos/TZ-AR70-7W-DIM-3K.webp` | foto guardada |
 | 7 | Fotos nuevas para los dos bloques de la **AR111 LED** (pág. 6): `TZ-AR111-15W-3K.webp`, `TZ-AR111-15W-4K.webp` | las 2 guardadas |
+| 8 | Foto nueva para **`TZ-PLL-18W-3K`** (PLL LED, pág. 6, slot inferior, bloque 3000K) → `fotos/TZ-PLL-18W-3K.webp` | 1 de 3 · faltan 4000K y 6000K |
 - **4.** La foto se ve en el chat pero **no quedó en disco**; hay que remandarla. El
   código ya está en la ficha (bloque 2700K), así que es sólo reemplazar la foto.
 - **5.** La ficha quedó con cuatro códigos (5W en 3000K, 4000K y 6000K, más el de 7W) y
@@ -54,3 +55,7 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
 - **7.** La ficha de la AR111 tiene **dos bloques**, 3000K y 4000K, y llegaron los dos, así
   que se reemplaza completa. El tercer código, `TZ-AR111-15W-4K DIM`, va listado en el panel
   blanco sin foto propia, como ya estaba.
+- **8.** La ficha del PLL tiene **tres bloques** apilados —3000K, 4000K y 6000K—, cada uno
+  con el tubo **horizontal** y su resplandor del color de la temperatura. La foto nueva es
+  horizontal y con el resplandor cálido, así que entra en ese mismo molde sin cambiar nada.
+  Faltan el 4000K y el 6000K.
