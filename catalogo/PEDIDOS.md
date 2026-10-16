@@ -18,8 +18,15 @@ El cliente los va pasando de a uno; se aplican todos juntos cuando avise **LISTO
   Si se reemplaza sólo el 3000K, el bloque queda distinto de los otros dos. Además la
   lámpara ocupa apenas la mitad de abajo del cuadro, así que al entrar en el hueco del
   bloque (unos 45 x 46 pt) quedaría mucho más chica que las otras dos.
-  Llegaron las tres en la misma toma, así que se reemplaza el bloque de variantes entero y
-  queda parejo. Las tres miden 1241x1267 con alfa y el haz ocupa la mitad de arriba del
-  cuadro: al escalarlas al hueco hay que decidir si entra el haz —y la lámpara queda más
-  chica que hoy— o si se recorta a la lámpara. Como las tres son iguales, cualquiera de
-  las dos opciones deja la ficha pareja.
+  Llegaron las tres en la misma toma, así que se reemplaza el bloque de variantes entero.
+  **Van más grandes que las actuales**, que es lo que resuelve el haz sin achicar la
+  lámpara. Medido sobre la página: cada foto ocupa hoy **54 x 46,3 pt** y entre una y la
+  siguiente quedan **51,1 pt de aire**, así que hay lugar para llevarlas a unos 85-90 pt de
+  alto sin que se toquen. El bloque de texto de cada variante no se mueve.
+
+| 3 | Foto nueva para **`TZ-MR11-3W-3K DIM`** (MINIDICRO LED, pág. 4, slot inferior) | **falta el archivo** |
+- **3.** Dos cosas: la foto se ve en el chat pero **no quedó en disco**, hay que
+  remandarla. Y `TZ-MR11-3W-3K DIM` es uno de los dos códigos que están en la lista de
+  precios y **todavía no están en el catálogo**: la ficha de la MINIDICRO hoy lleva sólo
+  `TZ-MR11-3W-3K`. O sea que además de la foto hay que sumarle el código a la ficha, y
+  entonces LÁMPARAS pasa de 33 a 34 códigos y hay que tocar el contador de la portadilla.
