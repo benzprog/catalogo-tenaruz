@@ -5,7 +5,7 @@ El cliente los va pasando de a uno; se aplican todos juntos cuando avise **LISTO
 | # | qué | estado |
 |---|---|---|
 | 1 | Reemplazar la foto del **LED STICK T45** (`TZ-STICKE27-12W-6K`, pág. 7, slot inferior) por `fotos/stick-t45.webp` | foto guardada |
-| 2 | Fotos nuevas para los bloques de la **DICROICA LED GU10 7W** (pág. 4): `TZ-GU10-7W-3K.webp`, `TZ-GU10-7W-4K.webp` | 2 de 3 · falta el 6000K |
+| 2 | Fotos nuevas para los tres bloques de la **DICROICA LED GU10 7W** (pág. 4): `TZ-GU10-7W-3K/4K/6K.webp` | las 3 guardadas |
 
 ## Notas
 
@@ -18,6 +18,8 @@ El cliente los va pasando de a uno; se aplican todos juntos cuando avise **LISTO
   Si se reemplaza sólo el 3000K, el bloque queda distinto de los otros dos. Además la
   lámpara ocupa apenas la mitad de abajo del cuadro, así que al entrar en el hueco del
   bloque (unos 45 x 46 pt) quedaría mucho más chica que las otras dos.
-  Llegaron el 3000K y el 4000K en la misma toma, así que se reemplaza el bloque entero y
-  queda parejo. **Falta el 6000K** (`TZ-GU10-7W-6K`): sin esa, el tercer bloque quedaría
-  con la foto vieja.
+  Llegaron las tres en la misma toma, así que se reemplaza el bloque de variantes entero y
+  queda parejo. Las tres miden 1241x1267 con alfa y el haz ocupa la mitad de arriba del
+  cuadro: al escalarlas al hueco hay que decidir si entra el haz —y la lámpara queda más
+  chica que hoy— o si se recorta a la lámpara. Como las tres son iguales, cualquiera de
+  las dos opciones deja la ficha pareja.
