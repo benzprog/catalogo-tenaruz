@@ -416,7 +416,14 @@ suelta. Esta batería los saca a la luz en un minuto:
    evita sumar otra capa tapada.
 1. **Códigos contra portadilla.** Contá los `TZ-...` distintos de cada sección y comparalos
    con el `N CÓDIGOS` de su portadilla. Tienen que dar exacto — es el mejor detector de una
-   ficha perdida o duplicada. En el 2026: 29 + 18 + 15 = 62.
+   ficha perdida o duplicada.
+
+   **Contalos con una expresión que admita el sufijo ` DIM`.** Dos códigos llevan un
+   espacio —`TZ-MR11-3W-3K DIM` y `TZ-AR111-15W-4K DIM`—, y un `TZ-[A-Z0-9.\-]*` los corta
+   ahí y los confunde con los que no son dimerizables. Por eso el contador de LÁMPARAS del
+   2026 decía 29 cuando eran 31, y por eso un cruce contra la lista de precios los marca
+   como faltantes del catálogo cuando en realidad están. La cuenta correcta del 2026 era
+   31 + 18 + 15 = 64.
 
    **Si movés una ficha de sección, movele el contador a las dos.** El spot de 12V
    (`TZ-SPOT12V-3W-NG-3K`) estaba en LÁMPARAS en el original y es un artefacto: al mudarlo,

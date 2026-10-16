@@ -7,9 +7,13 @@ cuatro fichas nuevas van en el medio y empujan a las que siguen, y además el or
 compone glifo por glifo con sus propios desplazamientos, de modo que una línea agregada
 nunca calza exactamente con las de al lado. Redibujando todas, todas quedan iguales.
 
-El contador no se deduce: se cuenta contra los códigos que hay. LÁMPARAS pasa de 29 a 33
-(MR16 4000K y 7W, más las dos del bulbo A60 12V/24V) y ARTEFACTOS de 18 a 32 (cinco del
-spot cabezal, dos del plafón, dos y dos de los paneles y tres del minispot).
+El contador no se deduce: se cuenta contra los códigos que hay, y hay que contar bien.
+**Dos códigos del catálogo llevan un espacio** —`TZ-MR11-3W-3K DIM` y
+`TZ-AR111-15W-4K DIM`—, así que una expresión regular que corte en el espacio los confunde
+con `TZ-MR11-3W-3K` y `TZ-AR111-15W-4K` y cuenta dos de menos. El contador original decía
+29 y en realidad eran 31. Contando bien, LÁMPARAS queda en **35** (los 31 de siempre más
+MR16 4000K, MR16 7W y las dos del bulbo A60 12V/24V) y ARTEFACTOS en **32** (cinco del spot
+cabezal, dos del plafón, dos y dos de los paneles y tres del minispot).
 """
 import pathlib
 import sys
@@ -49,7 +53,7 @@ PORTADILLAS = [
         "BULBO LED A60 · E27 12W DIMERIZABLE",
         "TUBO T5 LED · 18W 1149 mm",
         "BULBO A60 LED · E27 12V/24V 9W",
-    ], 33),
+    ], 35),
     (11, 68.0600, 441.96, 460.0, [
         "SPOT FIJO EMBUTIR · COB 3W Ø38 mm",
         "SPOT MÓVIL EMBUTIR · COB 3W Ø52 mm",

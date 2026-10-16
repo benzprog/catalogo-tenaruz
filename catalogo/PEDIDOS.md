@@ -7,6 +7,18 @@ El cliente los va pasando de a uno; se aplican todos juntos cuando avise **LISTO
 | 1 | Reemplazar la foto del **LED STICK T45** (`TZ-STICKE27-12W-6K`, pág. 7, slot inferior) por `fotos/stick-t45.webp` | foto guardada |
 | 2 | Fotos nuevas para los tres bloques de la **DICROICA LED GU10 7W** (pág. 4): `TZ-GU10-7W-3K/4K/6K.webp` | las 3 guardadas |
 
+## Corregido en el camino
+
+Yo había marcado `TZ-MR11-3W-3K DIM` y `TZ-AR111-15W-4K DIM` como códigos que estaban en
+la lista de precios y no en el catálogo. **Era falso**: los dos están. El error era de mi
+chequeo, que cortaba los códigos en el espacio y los confundía con las versiones no
+dimerizables.
+
+Eso además tapaba un error real: **el contador de la portadilla de LÁMPARAS estaba mal**.
+Decía 33 y son **35**. Viene de antes —el original decía 29 cuando eran 31— y yo lo
+arrastré al sumarle mis cuatro códigos nuevos. Corregido, y anotado en la skill para que no
+se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin diferencias**.
+
 ## Notas
 
 - **1.** La ficha está en LÁMPARAS, así que su panel es oscuro `#1e1e1e`: la foto hay que
@@ -25,10 +37,6 @@ El cliente los va pasando de a uno; se aplican todos juntos cuando avise **LISTO
   alto sin que se toquen. El bloque de texto de cada variante no se mueve.
 
 | 3 | Foto nueva para **`TZ-MR11-3W-3K`** (MINIDICRO LED, pág. 4, slot inferior) → `fotos/TZ-MR11-3W-3K.webp` | foto guardada |
-| 4 | Foto nueva para **`TZ-MR11-3W-3K DIM`** (mismo slot) | **falta el archivo** |
-- **4.** La foto se ve en el chat pero **no quedó en disco**; hay que remandarla. Y
-  `TZ-MR11-3W-3K DIM` es uno de los dos códigos que están en la lista de precios y
-  **todavía no están en el catálogo**: la ficha de la MINIDICRO hoy lleva sólo
-  `TZ-MR11-3W-3K`. Así que además de la foto hay que sumarle el código a la ficha, y
-  entonces LÁMPARAS pasa de 33 a 34 códigos y se toca el contador de la portadilla.
-  Pendiente de que el cliente confirme.
+| 4 | Foto nueva para **`TZ-MR11-3W-3K DIM`** (mismo slot, bloque 2700K) | **falta el archivo** |
+- **4.** La foto se ve en el chat pero **no quedó en disco**; hay que remandarla. El
+  código ya está en la ficha (bloque 2700K), así que es sólo reemplazar la foto.
