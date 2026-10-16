@@ -127,6 +127,14 @@ precedente para publicar una tabla incompleta.
   foto vieja del SPOT MINI y quedaba un arco flotando sobre el plafón. Se repinta todo y se
   vuelve a colocar el logo.
 
+### El gris del epígrafe depende del panel
+
+El código bajo la foto va en `#c9c9c9` sobre los paneles oscuros y en **`#6d6d6d` sobre
+los crema**. Usar el primero en los dos lados deja el SKU casi invisible: da 1,42:1 de
+contraste contra el crema, cuando el mínimo legible para texto grande es 3:1. Con el gris
+correcto queda en 4,44:1. La referencia está en el propio catálogo: el epígrafe de la
+ESTACA SOLAR, que es original y va sobre crema, usa `#6d6d6d`.
+
 ### Lo que costó
 
 - **La página 11.** El TUBO T5 ocupaba la hoja entera; su tabla, sus códigos y su pie caían

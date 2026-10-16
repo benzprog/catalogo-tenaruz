@@ -37,9 +37,15 @@ ESTILOS = {
     "codigo":    ("/F20", 5.76, 0.396, Catalog.VALUE),
     "subcodigo": ("/F11", 5.19, 0.895, Catalog.SUBCODE),
     "pie":       ("/F11", 5.76, 1.496, Catalog.FOOTER),
-    "epigrafe":  ("/F11", 5.19, 1.596, Catalog.CAPTION),
+    "epigrafe":  ("/F11", 5.19, 1.596, Catalog.CAPTION),   # el color real lo fija el panel
     "numero":    ("/F11", 6.34, 0.0, Catalog.WHITE),
 }
+
+# El epígrafe bajo la foto cambia de gris según el panel: el #c9c9c9 de los paneles
+# oscuros, sobre el crema, casi no se lee. El catálogo usa #6d6d6d ahí (verificado contra
+# el epígrafe de la ESTACA SOLAR, que está sobre crema en el original).
+EPIGRAFE_OSCURO = (201, 201, 201)
+EPIGRAFE_CREMA = (109, 109, 109)
 
 PASO_CODIGO_X = 77.42      # columnas de la grilla de códigos, medidas en la pág 15
 PASO_CODIGO_Y = 24.20      # renglones de esa grilla
@@ -98,8 +104,10 @@ def ficha(cat, pagina, slot, prod, fondo, solo_blanco=False):
         # slot le cae encima (al tubo T5 le partía el cuerpo por la mitad)
         pie_foto = min(slot.caption_y, y - alto / 2 - 14.0) if len(fotos) == 1 \
             else y - alto / 2 - 14.0
-        texto(cat, frag, "epigrafe", epigrafe, 0, pie_foto,
-              centro=slot.caption_center_x)
+        recurso, cuerpo, trk, _ = ESTILOS["epigrafe"]
+        gris = EPIGRAFE_CREMA if sum(fondo) > 384 else EPIGRAFE_OSCURO
+        frag.append(cat.show_center(epigrafe, recurso, cuerpo, slot.caption_center_x,
+                                    pie_foto, trk, gris))
 
     # panel blanco: titular, bajada y barra de acento
     texto(cat, frag, "titulo", prod["titulo"], slot.text_x, slot.title_y)
