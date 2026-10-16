@@ -65,12 +65,32 @@ la ficha va *Plateado*.
 
 ## Lo que falta antes de poder armar las fichas
 
-- **CRI, flujo luminoso, apertura y grado IP** de los cinco productos nuevos. La planilla
-  no los trae y no se inventan: si no están, esas filas no van.
-- Las fotos **como archivo adjunto**. Las que llegan pegadas en el chat se ven pero no
-  quedan en disco —se buscó en todo el sistema de archivos y no están—, y para montarlas
-  sobre el panel hay que recortarlas contra su propio fondo. El .xlsx y el PDF sí
-  quedaron, así que adjuntarlas como archivo funciona.
+Las diez fotos están y el cliente confirmó la asignación de SKU. Se verificó además que
+las tres fuentes embebidas tienen todos los glifos de los textos nuevos, así que no hace
+falta el recurso de incrustar Poppins aparte.
+
+Lo único que falta son números de catálogo que la planilla no trae:
+
+| ficha | se puede escribir hoy | falta |
+|---|---|---|
+| BULBO A60 12V/24V 9W | Potencia, Rosca, Tensión, Temperatura | flujo luminoso, apertura, CRI, vida útil, medidas |
+| PLAFÓN Ø60 | Potencia, Tensión, Material, Medidas, Temperatura | flujo luminoso, apertura, CRI, IP |
+| PANEL Ø83 BLANCO | Potencia, Tensión, Color, Medidas, Temperatura | flujo luminoso, apertura, CRI, IP, medida de corte |
+| PANEL Ø70 NEGRO | Potencia, Tensión, Color, Medidas, Temperatura | flujo luminoso, apertura, CRI, IP |
+| MINISPOT Ø20 | Potencia, Tensión, Material, Color, Medidas, Temperatura | flujo luminoso, apertura, CRI, IP |
+| MR16 (amplía) | el 4000K no necesita nada: es el mismo 5W | lúmenes del 7W |
+| SPOT CABEZAL (amplía) | los colores no necesitan nada | lúmenes de la versión de 2,5W |
+
+Las medidas del panel Ø70 (Ø70 externo / Ø58 de corte / 12 mm de profundidad) y las del
+minispot Ø20 (Ø20 exterior / 25 mm de profundidad / Ø15 de hueco) ya las había dado el
+cliente cuando armamos la lista de octubre.
+
+Si esos números no aparecen, las tablas salen de 4 a 6 filas. No desentona: la ficha de la
+ESTACA SOLAR tiene 5.
+
+**Ojo**: el pie «FICHA TÉCNICA AMPLIADA A CONFIRMAR» que aparece en la ficha del A60 al
+extraer el texto **no se ve** — es texto enterrado de una corrección vieja. No sirve de
+precedente para publicar una tabla incompleta.
 
 ## Pendientes que el cliente todavía no contestó
 
