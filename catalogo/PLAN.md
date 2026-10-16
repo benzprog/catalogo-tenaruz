@@ -110,6 +110,23 @@ precedente para publicar una tabla incompleta.
 | diferencia contra el original | las páginas 1, 4, 6, 7, 8, 9, 10, 13 y 22 quedan idénticas al pixel; el resto, explicado |
 | ficha mudada | el SPOT MINI pasa de la 14 a la 16 con **0 px de diferencia** |
 
+### Las fotos: dos cosas que ensuciaron la página
+
+- **El fondo de las fotos no es plano.** Las del plafón y el panel Ø83 traen un degradé de
+  hasta nueve niveles, así que con un umbral fijo contra el blanco medio imagen entra como
+  producto y, peor, a un producto **blanco sobre blanco** se le comen pedazos del aro: al
+  panel Ø83 le quedaron manchones crema encima del marco. Lo que vale no es el valor sino
+  la conexión: el fondo toca el borde de la imagen y el producto no. Ahora se saca la
+  región parecida al borde **que llega hasta el borde**, y de lo que queda se conserva sólo
+  la mancha más grande, porque son fotos de un solo objeto.
+- **Afuera de la silueta hay que pintar el destino liso.** La cuenta que respeta el
+  antialias sólo vale donde el píxel es mezcla de producto y fondo; aplicada afuera
+  arrastra las sombras y los reflejos de la foto.
+- **Y los paneles se repintan enteros, no hasta `dark_cover`.** Ese recorte existe para no
+  pisar el logo, pero deja sin pintar la franja de arriba: ahí sobrevivía el borde de la
+  foto vieja del SPOT MINI y quedaba un arco flotando sobre el plafón. Se repinta todo y se
+  vuelve a colocar el logo.
+
 ### Lo que costó
 
 - **La página 11.** El TUBO T5 ocupaba la hoja entera; su tabla, sus códigos y su pie caían

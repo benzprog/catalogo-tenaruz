@@ -43,33 +43,63 @@ def fondo_de(a):
     return np.median(esquinas, axis=0)
 
 
-def silueta(a, fondo, umbral=14.0, minimo=0.0008, lima=2):
+def silueta(a, fondo, umbral=12.0, lima=2):
+    """La silueta del producto: todo lo que no sea fondo conectado al borde.
+
+    Un umbral fijo contra el blanco no sirve. El fondo de estas fotos **no es plano**: tiene
+    un degradé de hasta nueve niveles, así que la mitad de la imagen se aparta más de 4 del
+    valor de las esquinas. Con un corte fijo, un producto blanco sobre blanco pierde pedazos
+    del aro —al panel Ø83 le quedaron manchones— y el fondo lejano entra como producto.
+
+    Lo que sí vale es la conexión: el fondo toca el borde de la imagen y el producto no. Se
+    toma como fondo la región parecida al valor del borde **que llega hasta el borde**, y
+    todo lo demás es producto.
+
+    Y se conserva sólo la mancha más grande: son fotos de un solo objeto, y al plafón le
+    había quedado un arco suelto flotando arriba.
+    """
     d = np.abs(a - fondo).max(axis=2)
-    m = ndimage.binary_fill_holes(d > umbral)
-    m = ndimage.binary_opening(m, disco(1))
-    lab, n = ndimage.label(m)
+    candidato = d <= umbral
+    lab, n = ndimage.label(candidato)
     if n:
+        borde = set(lab[0].tolist()) | set(lab[-1].tolist()) | \
+            set(lab[:, 0].tolist()) | set(lab[:, -1].tolist())
+        borde.discard(0)
+        fondo_real = np.isin(lab, list(borde))
+    else:
+        fondo_real = np.zeros_like(candidato)
+
+    m = ndimage.binary_fill_holes(~fondo_real)
+    lab, n = ndimage.label(m)
+    if n > 1:                                   # una sola mancha: la más grande
         tam = ndimage.sum(m, lab, range(1, n + 1))
-        m = np.isin(lab, [i + 1 for i, t in enumerate(tam) if t > minimo * m.size])
+        m = lab == (int(np.argmax(tam)) + 1)
     m = ndimage.binary_closing(m, disco(lima + 1))
     m = ndimage.binary_opening(m, disco(lima))
     return ndimage.binary_fill_holes(m)
 
 
-def recomponer(ruta, destino, umbral=14.0, lima=2, margen=0.015):
-    """Devuelve la foto recortada y recompuesta sobre `destino`, en RGB."""
+def recomponer(ruta, destino, umbral=12.0, lima=2, margen=0.015):
+    """Devuelve la foto recortada y recompuesta sobre `destino`, en RGB.
+
+    Afuera de la silueta se pinta el destino **liso**. La cuenta que respeta el antialias
+    del borde sólo vale donde el píxel es mezcla de producto y fondo; aplicada afuera
+    arrastra las sombras y los reflejos de la foto, que sobre el crema se ven como manchas.
+    """
     im = Image.open(ruta)
     if im.mode in ("RGBA", "LA", "P"):
         im = Image.alpha_composite(Image.new("RGBA", im.size, "white"),
                                    im.convert("RGBA"))
     a = np.asarray(im.convert("RGB"), dtype=float)
     fondo = fondo_de(a)
-    m = silueta(a, fondo, umbral, lima=lima)
+    m = silueta(a, fondo, umbral, lima)
 
-    # cobertura: 1 adentro de la silueta, el antialias del borde queda en el medio
+    adentro = ndimage.binary_erosion(m, disco(1))
+    borde = m & ~adentro                        # la orla donde vale la mezcla
     cob = np.clip(np.abs(a - fondo).max(axis=2) / max(umbral, 1.0), 0, 1)
-    cob = np.where(m, np.maximum(cob, 1.0), np.minimum(cob, 0.0))[..., None]
-    sal = a + (np.array(destino) - fondo) * (1 - cob)
+    cob = np.where(adentro, 1.0, np.where(borde, cob, 0.0))[..., None]
+    sal = np.where(cob > 0, a + (np.array(destino) - fondo) * (1 - cob),
+                   np.array(destino, dtype=float))
 
     ys, xs = np.where(m)
     if len(ys):

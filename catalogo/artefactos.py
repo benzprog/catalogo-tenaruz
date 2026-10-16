@@ -261,9 +261,14 @@ def main(entrada=ENTRADA, salida=SALIDA):
     p15, p16 = pdf.pages[14], pdf.pages[15]
 
     # ── página 14: el SPOT 12V se rehace con sus seis códigos, y abajo entra el plafón
-    frag = ficha(cat, p14, TOP, SPOT12V, CREMA)
-    frag += ficha(cat, p14, BOTTOM, PLAFON, CREMA)
-    frag.append(logo_oscuro(pdf, p14, BOTTOM, logo))   # el panel de abajo se repintó entero
+    # Los paneles se repintan ENTEROS, no hasta `dark_cover`. Ese recorte existe para no
+    # pisar el logo, pero deja sin pintar la franja de arriba, y ahí sobrevivía el borde de
+    # la foto vieja del SPOT MINI: quedaba un arco flotando sobre el plafón. Se repinta
+    # todo y se vuelve a poner el logo.
+    frag = [cat.rect(*TOP.dark_panel, CREMA)]
+    frag += ficha(cat, p14, TOP, SPOT12V, CREMA) + [logo_oscuro(pdf, p14, TOP, logo)]
+    frag.append(cat.rect(*BOTTOM.dark_panel, CREMA))
+    frag += ficha(cat, p14, BOTTOM, PLAFON, CREMA) + [logo_oscuro(pdf, p14, BOTTOM, logo)]
     recuadro_numero(cat, frag, BOTTOM, "14")
     cat.append(p14, "\n".join(frag))
 
