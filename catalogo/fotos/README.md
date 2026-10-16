@@ -14,6 +14,7 @@ su ficha (cambia la temperatura de color, no el artefacto).
 | `panel-embutir-o70-negro.png` | `TZ-TDC011-3K` · `TZ-TDC014-6K` | Panel embutir Ø70 negro | 1254x1254 |
 | `minispot-o20-blanco.png` | `TZ-TDC018-4K` | Minispot COB Ø20 blanco | 1549x1015 |
 | `minispot-o20-platil.png` | `TZ-TDC010-4K` | Minispot COB Ø20 platil | 1548x1016 |
+| `minispot-o20-negro.webp` | `TZ-TDC019-4K` | Minispot COB Ø20 negro | 1549x1015 |
 | `bulbo-a60-12v24v.webp` | `TZ-A6012V24V-9W-3K` · `-6K` | Bulbo A60 E27 12V/24V 9W | 1254x1254 |
 
 Los dos minispot habían llegado antes pegados en el chat, en WebP; se reemplazaron por los
@@ -25,6 +26,7 @@ alcanza, pero si aparece la grande conviene cambiarla.
 
 ## Faltan
 
-- `TZ-TDC019-4K` — el minispot Ø20 en **negro**. Están el blanco y el platil.
-- `TZ-MR16-5W-4K` y `TZ-MR16-7W-3K`: no hacen falta si se arma la variante a partir de la
-  foto que ya está en el catálogo. Pendiente de confirmar.
+Nada: están las diez. El cliente confirmó la asignación de SKU.
+
+De `TZ-MR16-5W-4K` y `TZ-MR16-7W-3K` no hay foto propia; la variante se arma con la que
+ya está en el catálogo, que es la misma lámpara.
