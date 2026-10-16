@@ -24,9 +24,11 @@ El cliente los va pasando de a uno; se aplican todos juntos cuando avise **LISTO
   siguiente quedan **51,1 pt de aire**, así que hay lugar para llevarlas a unos 85-90 pt de
   alto sin que se toquen. El bloque de texto de cada variante no se mueve.
 
-| 3 | Foto nueva para **`TZ-MR11-3W-3K DIM`** (MINIDICRO LED, pág. 4, slot inferior) | **falta el archivo** |
-- **3.** Dos cosas: la foto se ve en el chat pero **no quedó en disco**, hay que
-  remandarla. Y `TZ-MR11-3W-3K DIM` es uno de los dos códigos que están en la lista de
-  precios y **todavía no están en el catálogo**: la ficha de la MINIDICRO hoy lleva sólo
-  `TZ-MR11-3W-3K`. O sea que además de la foto hay que sumarle el código a la ficha, y
-  entonces LÁMPARAS pasa de 33 a 34 códigos y hay que tocar el contador de la portadilla.
+| 3 | Foto nueva para **`TZ-MR11-3W-3K`** (MINIDICRO LED, pág. 4, slot inferior) → `fotos/TZ-MR11-3W-3K.webp` | foto guardada |
+| 4 | Foto nueva para **`TZ-MR11-3W-3K DIM`** (mismo slot) | **falta el archivo** |
+- **4.** La foto se ve en el chat pero **no quedó en disco**; hay que remandarla. Y
+  `TZ-MR11-3W-3K DIM` es uno de los dos códigos que están en la lista de precios y
+  **todavía no están en el catálogo**: la ficha de la MINIDICRO hoy lleva sólo
+  `TZ-MR11-3W-3K`. Así que además de la foto hay que sumarle el código a la ficha, y
+  entonces LÁMPARAS pasa de 33 a 34 códigos y se toca el contador de la portadilla.
+  Pendiente de que el cliente confirme.
