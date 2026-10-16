@@ -97,3 +97,21 @@ precedente para publicar una tabla incompleta.
 - Texto viejo enterrado en 13 de las 16 páginas de fichas (se copia y se busca, no se ve).
 - La página de contacto dice `panailuminacion@hotmail.com` y mantiene el 11-4176-4205.
 - `TZ-AR111-15W-4K DIM` y `TZ-MR11-3W-3K DIM` están en la lista y no en el catálogo.
+
+## Avance
+
+**Página 11 lista.** Era la más incómoda: el TUBO T5 ocupaba la hoja entera, así que no
+alcanzaba con repintar la mitad de abajo —su tabla, sus códigos y su pie caían por debajo
+del medio y quedaban cortados—. Se rearmó la ficha dentro del slot superior con la grilla
+del slot, se espejó la mitad inferior (oscuro a la izquierda, blanco a la derecha), se
+recolocó el logo blanco y se repintó el recuadro del folio. Verificado: las otras
+diecinueve páginas quedan idénticas al pixel.
+
+Dos cosas que mordieron y conviene no repetir:
+
+- **`Stream.write(datos, filter=...)` espera los datos YA codificados.** Pasarle los bytes
+  crudos con `filter=/FlateDecode` deja el stream ilegible: «unknown compression method».
+  Hay que comprimir con `zlib` antes.
+- **El epígrafe de la foto no puede ir en la coordenada fija del slot.** Con una foto alta
+  —el tubo mide 102x992— el `caption_y` del slot le cae por el medio del cuerpo. Ahora
+  cuelga de la foto y usa el fijo sólo si queda más abajo.
