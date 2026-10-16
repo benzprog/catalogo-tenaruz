@@ -5,7 +5,7 @@ El cliente los va pasando de a uno; se aplican todos juntos cuando avise **LISTO
 | # | qué | estado |
 |---|---|---|
 | 1 | Reemplazar la foto del **LED STICK T45** (`TZ-STICKE27-12W-6K`, pág. 7, slot inferior) por `fotos/stick-t45.webp` | foto guardada |
-| 2 | Foto nueva para **`TZ-GU10-7W-3K`** (DICROICA LED GU10 7W, pág. 4, bloque 3000K) → `fotos/TZ-GU10-7W-3K.webp` | foto guardada · **a consultar** |
+| 2 | Fotos nuevas para los bloques de la **DICROICA LED GU10 7W** (pág. 4): `TZ-GU10-7W-3K.webp`, `TZ-GU10-7W-4K.webp` | 2 de 3 · falta el 6000K |
 
 ## Notas
 
@@ -18,4 +18,6 @@ El cliente los va pasando de a uno; se aplican todos juntos cuando avise **LISTO
   Si se reemplaza sólo el 3000K, el bloque queda distinto de los otros dos. Además la
   lámpara ocupa apenas la mitad de abajo del cuadro, así que al entrar en el hueco del
   bloque (unos 45 x 46 pt) quedaría mucho más chica que las otras dos.
-  Hay que decidir: o vienen las tres temperaturas en esta toma, o la foto va en otro lado.
+  Llegaron el 3000K y el 4000K en la misma toma, así que se reemplaza el bloque entero y
+  queda parejo. **Falta el 6000K** (`TZ-GU10-7W-6K`): sin esa, el tercer bloque quedaría
+  con la foto vieja.
