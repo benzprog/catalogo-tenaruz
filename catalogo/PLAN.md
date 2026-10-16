@@ -47,11 +47,18 @@ paneles a toda altura, y hay que partirla en dos slots para meter el bulbo A60 a
 
 ## Fotos: qué SKU va en cada una
 
-| foto | SKU |
-|---|---|
-| spot cabezal negro | `TZ-SPOT12V-3W-NG-3K`, `TZ-TDC005-4K` |
-| spot cabezal blanco | `TZ-TDC033-3K`, `TZ-TDC034-4K` |
-| spot cabezal platil | `TZ-TDC031-3K`, `TZ-TDC032-4K` |
+| foto | SKU | |
+|---|---|---|
+| spot cabezal negro | `TZ-SPOT12V-3W-NG-3K`, `TZ-TDC005-4K` | |
+| spot cabezal blanco | `TZ-TDC033-3K`, `TZ-TDC034-4K` | |
+| spot cabezal platil | `TZ-TDC031-3K`, `TZ-TDC032-4K` | |
+| plafón de aplicar redondo **blanco** | `TZ-TDC003-3K`, `TZ-TDC004-6K` | la planilla dice *Platil* |
+| panel embutir redondo blanco | `TZ-PNR12V-3W-BL-3K`, `-6K` | |
+| panel embutir redondo negro | `TZ-TDC011-3K`, `TZ-TDC014-6K` | es la misma foto que ya usamos en la lista de octubre |
+| spot cabezal blanco *(repetida)* | `TZ-TDC018-4K` | **no coincide**: ese código es el minispot Ø20mm |
+
+Faltan las de `TZ-TDC019-4K`, `TZ-TDC010-4K`, `TZ-MR16-5W-4K`, `TZ-MR16-7W-3K`,
+`TZ-A6012V24V-9W-3K` y `-6K`.
 
 **Platil = plateado**, acabado aluminio/acero: lo confirma la foto. En la fila «Color» de
 la ficha va *Plateado*.
@@ -60,8 +67,10 @@ la ficha va *Plateado*.
 
 - **CRI, flujo luminoso, apertura y grado IP** de los cinco productos nuevos. La planilla
   no los trae y no se inventan: si no están, esas filas no van.
-- Las fotos **como archivo**. Las que llegan pegadas en el chat se ven pero no quedan en
-  disco, y para montarlas sobre el panel hay que recortarlas contra su propio fondo.
+- Las fotos **como archivo adjunto**. Las que llegan pegadas en el chat se ven pero no
+  quedan en disco —se buscó en todo el sistema de archivos y no están—, y para montarlas
+  sobre el panel hay que recortarlas contra su propio fondo. El .xlsx y el PDF sí
+  quedaron, así que adjuntarlas como archivo funciona.
 
 ## Pendientes que el cliente todavía no contestó
 
