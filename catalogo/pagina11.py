@@ -65,7 +65,7 @@ A60 = {
 }
 
 
-def main(entrada=ORIGEN, salida=BASE / "TZ-Importado_Catalogo.pdf"):
+def main(entrada=ORIGEN, salida=BASE / "_paso1.pdf"):
     cat = Catalog(str(entrada))
     pagina = cat.pdf.pages[10]
 

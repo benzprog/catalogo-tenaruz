@@ -68,7 +68,10 @@ def ficha(cat, pagina, slot, prod, fondo):
     # fotos: una por variante física, apiladas si hay más de una
     fotos = prod["fotos"]
     cx, cy = slot.photo_center
-    alto_caja = 230.0 if len(fotos) == 1 else 260.0 / len(fotos)
+    paso = 230.0 if len(fotos) == 1 else 268.0 / len(fotos)
+    # con varias fotos hay que reservarle lugar al epígrafe de cada una: si la foto ocupa
+    # todo el paso, el epígrafe cae dentro de la foto siguiente
+    alto_caja = paso if len(fotos) == 1 else paso - 19.0
     for i, (archivo, epigrafe) in enumerate(fotos):
         if archivo.startswith("/"):
             # foto que ya está en el documento: se recoloca, no se vuelve a embeber.
@@ -82,7 +85,7 @@ def ficha(cat, pagina, slot, prod, fondo):
             ancho_px, alto_px = im.size
         ancho = min(prod.get("ancho_foto", 210.0), alto_caja * ancho_px / alto_px)
         alto = ancho * alto_px / ancho_px
-        y = cy + (len(fotos) - 1 - 2 * i) * alto_caja / 2
+        y = cy + (len(fotos) - 1 - 2 * i) * paso / 2
         frag.append(cat.place(nombre, cx - ancho / 2, y - alto / 2, ancho, alto))
         # el epígrafe cuelga de la foto: con una foto alta, la coordenada fija del
         # slot le cae encima (al tubo T5 le partía el cuerpo por la mitad)
@@ -116,19 +119,40 @@ def ficha(cat, pagina, slot, prod, fondo):
 
     # códigos: cuelgan de la última fila, no de una coordenada fija
     base = slot.row_baselines[len(prod["filas"]) - 1] - BAJO_TABLA
+    # la grilla de códigos es de tres columnas, pero un código largo no entra en 77,42 pt
+    # y se pega al de al lado: ahí se pasa a dos columnas y se reparte el ancho igual
+    recurso, cuerpo, trk, _ = ESTILOS["codigo"]
+    mas_ancho = max(cat.advance(c, recurso, cuerpo, trk) for c, _ in prod["codigos"])
+    ancho_util = slot.value_right - slot.text_x
+    columnas = 3 if mas_ancho <= PASO_CODIGO_X - 6.0 else 2
+    paso_x = ancho_util / columnas
     for i, (codigo, subcodigo) in enumerate(prod["codigos"]):
-        x = slot.text_x + (i % 3) * PASO_CODIGO_X
-        y = base - (i // 3) * PASO_CODIGO_Y
+        x = slot.text_x + (i % columnas) * paso_x
+        y = base - (i // columnas) * PASO_CODIGO_Y
         texto(cat, frag, "codigo", codigo, x, y)
         texto(cat, frag, "subcodigo", subcodigo, x, y - BAJO_CODIGO)
 
+    # el pie no se mueve, así que una tabla larga con muchos códigos se le encima:
+    # más vale que falle acá y no que salga impreso uno sobre otro
+    ultimo = base - ((len(prod["codigos"]) - 1) // columnas) * PASO_CODIGO_Y - BAJO_CODIGO
+    techo_pie = slot.footer_y + (len(prod["pie"]) - 1) * 12.67
+    if ultimo - techo_pie < 8.0:
+        raise SystemExit(
+            f"{prod['clave']}: el último subcódigo queda a {ultimo - techo_pie:.1f} pt del "
+            f"pie. Sacá una fila de la tabla o un renglón de códigos.")
+
     for i, linea in enumerate(prod["pie"]):
-        texto(cat, frag, "pie", linea, slot.text_x, slot.footer_y + (len(prod["pie"]) - 1 - i) * 12.67)
+        texto(cat, frag, "pie", linea, slot.text_x,
+              slot.footer_y + (len(prod["pie"]) - 1 - i) * 12.67)
 
     return frag
 
 
 def recuadro_numero(cat, frag, slot, numero):
-    """El recuadro del folio vive dentro del panel blanco del slot inferior."""
-    frag.append(cat.rect(*slot.page_tab, Catalog.TITLE))
+    """El recuadro del folio vive dentro del panel blanco del slot inferior.
+
+    Se tapa con margen —(579.5, -1, 34, 36), que es como lo pinta el original— porque en
+    páginas ya editadas pueden convivir dos recuadros con geometrías distintas.
+    """
+    frag.append(cat.rect(579.5, -1.0, 34.0, 36.0, Catalog.TITLE))
     texto(cat, frag, "numero", numero, 0, slot.page_num_y, centro=slot.page_num_center)
