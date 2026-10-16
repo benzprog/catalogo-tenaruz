@@ -18,6 +18,9 @@ y se dibuja el form trasladado, que es como lo resuelve la página 17 del origin
 import pathlib
 import sys
 
+import re
+import zlib
+
 import pikepdf
 
 BASE = pathlib.Path(__file__).resolve().parent
@@ -136,16 +139,80 @@ MINISPOT = {
 }
 
 
-def logo_oscuro(slot):
-    """El logo de los paneles crema vive dentro de `/S17`, en la posición del slot inferior.
+def logo_oscuro(pdf, pagina, slot, fuente):
+    """Coloca el logo TENARUZ en su versión oscura, la de los paneles crema.
 
-    Se recorta a la caja del logo del slot destino y se dibuja el form trasladado, que es
-    como lo resuelve la página 17 del original. Redibujarlo a mano nunca queda bien.
+    La primera versión lo traía dibujando `/S17` recortado a la caja del logo, como hace la
+    página 17 del original. Se ve bien, pero **el recorte no saca el texto de la capa**: la
+    página se llevaba entera la ficha de la estaca solar y su número de página, y aparecían
+    al copiar y pegar.
+
+    El logo es monocromo —tinta blanca más una máscara de transparencia—, así que se arma
+    uno nuevo con la misma máscara y la tinta en el gris oscuro del documento. La silueta
+    es exactamente la misma porque la máscara es la misma.
     """
+    nombre = "/ImLogoOsc"
+    recursos = pagina.obj["/Resources"]
+    if "/XObject" not in recursos:
+        recursos["/XObject"] = pikepdf.Dictionary()
+    if nombre not in recursos["/XObject"]:
+        mascara = fuente["/SMask"]
+        ancho, alto = int(fuente.Width), int(fuente.Height)
+        tinta = pikepdf.Stream(pdf, zlib.compress(bytes([26, 26, 26]) * (ancho * alto), 9))
+        tinta.Type, tinta.Subtype = pikepdf.Name.XObject, pikepdf.Name.Image
+        tinta.Width, tinta.Height = ancho, alto
+        tinta.ColorSpace, tinta.BitsPerComponent = pikepdf.Name.DeviceRGB, 8
+        tinta.Filter = pikepdf.Name.FlateDecode
+        tinta.SMask = mascara
+        recursos["/XObject"][nombre] = pdf.make_indirect(tinta)
     x, y, w, h = slot.logo_pos
-    dx = x - BOTTOM.logo_pos[0]
-    dy = y - BOTTOM.logo_pos[1]
-    return f"q {x} {y} {w} {h} re W n 1 0 0 1 {dx} {dy} cm /S17 Do Q"
+    return f"q {w} 0 0 {h} {x} {y} cm {nombre} Do Q"
+
+
+def correcciones(pagina, x_min=306.0, y_max=396.0):
+    """Los operadores de corrección de la página que caen en la mitad inferior.
+
+    No alcanza con repetir el dibujo del form: la página 14 trae en su propio stream las
+    correcciones de contenido que se le hicieron después —la descripción reescrita del SPOT
+    MINI y su pie de dos renglones—. Copiando sólo el form, la ficha se mudaba con el texto
+    viejo. Se copian los grupos `q ... Q` cuyas coordenadas caen en la mitad de abajo, tal
+    cual están, para que el dibujo sea el mismo.
+    """
+    datos = pagina.obj["/Contents"]
+    flujos = list(datos) if isinstance(datos, pikepdf.Array) else [datos]
+    salida = []
+    for f in flujos:
+        crudo = bytes(f.read_bytes()).decode("latin-1")
+        # se buscan los grupos `q ... Q` sin otro `q` adentro: son las tapas y los bloques
+        # de texto sueltos. Los de afuera envuelven el stream entero y no sirven de filtro.
+        pila = []
+        for m in re.finditer(r"[qQ]", crudo):
+            if m.group() == "q":
+                pila.append(m.start())
+                continue
+            if not pila:
+                continue
+            a = pila.pop()
+            if any(crudo.find("q", a + 1, m.start()) > 0 for _ in (0,)) and \
+                    "q" in crudo[a + 1:m.start()]:
+                continue                              # tiene grupos adentro: no es hoja
+            grupo = crudo[a:m.end()]
+            if "Do" in grupo:                         # los form se dibujan aparte
+                continue
+            # El ancla de un bloque de texto es su PRIMER Td: los que siguen son avances
+            # relativos de cada glifo, con x chiquita, y arruinaban el filtro. En un
+            # rectángulo, los dos primeros números son la esquina, no el tamaño.
+            if "BT" in grupo:
+                m0 = re.search(r"([\d.]+)\s+([\d.]+)\s+Td", grupo)
+                ancla = (float(m0.group(1)), float(m0.group(2))) if m0 else None
+            else:
+                m0 = re.search(r"([\d.]+)\s+([\d.]+)\s+[\d.]+\s+[\d.]+\s+re", grupo)
+                ancla = (float(m0.group(1)), float(m0.group(2))) if m0 else None
+            if ancla is None or ancla[0] > 570:       # el recuadro del folio se repinta aparte
+                continue
+            if ancla[0] >= x_min and ancla[1] < y_max:
+                salida.append(grupo)
+    return salida
 
 
 def pagina_nueva(pdf, modelo):
@@ -180,38 +247,40 @@ def main(entrada=ENTRADA, salida=SALIDA):
     p14 = pdf.pages[13]
     forms = p14.obj["/Resources"]["/XObject"]
     s15 = forms["/S15"]                      # trae la ficha del SPOT MINI
-    s17 = pdf.pages[16].obj["/Resources"]["/XObject"]["/S17"]   # trae el logo oscuro
+    logo = pdf.pages[16].obj["/Resources"]["/XObject"]["/ImLogo"]   # logo con su máscara
+
+    # hay que leerlas antes de tocar la 14, que se repinta
+    correcciones_14 = correcciones(p14)
+    print(f"  correcciones de la mitad inferior de la 14 que se mudan: {len(correcciones_14)}")
 
     nuevas = [pagina_nueva(pdf, p14) for _ in range(2)]
     for n, pg in enumerate(nuevas):
         pg.obj["/Resources"]["/XObject"]["/S15"] = s15
-        pg.obj["/Resources"]["/XObject"]["/S17"] = s17
         pdf.pages.insert(14 + n, pg)
 
     p15, p16 = pdf.pages[14], pdf.pages[15]
-    if "/S17" not in forms:
-        forms["/S17"] = s17
 
     # ── página 14: el SPOT 12V se rehace con sus seis códigos, y abajo entra el plafón
     frag = ficha(cat, p14, TOP, SPOT12V, CREMA)
     frag += ficha(cat, p14, BOTTOM, PLAFON, CREMA)
-    frag.append(logo_oscuro(BOTTOM))         # el panel de abajo se repintó entero
+    frag.append(logo_oscuro(pdf, p14, BOTTOM, logo))   # el panel de abajo se repintó entero
     recuadro_numero(cat, frag, BOTTOM, "14")
     cat.append(p14, "\n".join(frag))
 
     # ── página 15 nueva: los dos paneles redondos
     frag = paneles(cat)
-    frag += ficha(cat, p15, TOP, PANEL83, CREMA) + [logo_oscuro(TOP)]
-    frag += ficha(cat, p15, BOTTOM, PANEL70, CREMA) + [logo_oscuro(BOTTOM)]
+    frag += ficha(cat, p15, TOP, PANEL83, CREMA) + [logo_oscuro(pdf, p15, TOP, logo)]
+    frag += ficha(cat, p15, BOTTOM, PANEL70, CREMA) + [logo_oscuro(pdf, p15, BOTTOM, logo)]
     recuadro_numero(cat, frag, BOTTOM, "15")
     cat.append(p15, "\n".join(frag))
 
     # ── página 16 nueva: el minispot arriba y, abajo, el SPOT MINI que baja de la 14.
     #    No se redibuja: se repiten los operadores con que la 14 lo dibujaba.
     frag = paneles(cat)
-    frag += ficha(cat, p16, TOP, MINISPOT, CREMA) + [logo_oscuro(TOP)]
+    frag += ficha(cat, p16, TOP, MINISPOT, CREMA) + [logo_oscuro(pdf, p16, TOP, logo)]
     frag += ["q 306 0 306 396 re W n 1 0 0 1 306 -396 cm /S15 Do Q",
              "q 0 0 306 396 re W n 1 0 0 1 -306 -396 cm /S15 Do Q"]
+    frag += correcciones_14
     recuadro_numero(cat, frag, BOTTOM, "16")
     cat.append(p16, "\n".join(frag))
 

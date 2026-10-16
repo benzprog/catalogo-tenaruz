@@ -98,20 +98,50 @@ precedente para publicar una tabla incompleta.
 - La página de contacto dice `panailuminacion@hotmail.com` y mantiene el 11-4176-4205.
 - `TZ-AR111-15W-4K DIM` y `TZ-MR11-3W-3K DIM` están en la lista y no en el catálogo.
 
-## Avance
+## Estado: hecho
 
-**Página 11 lista.** Era la más incómoda: el TUBO T5 ocupaba la hoja entera, así que no
-alcanzaba con repintar la mitad de abajo —su tabla, sus códigos y su pie caían por debajo
-del medio y quedaban cortados—. Se rearmó la ficha dentro del slot superior con la grilla
-del slot, se espejó la mitad inferior (oscuro a la izquierda, blanco a la derecha), se
-recolocó el logo blanco y se repintó el recuadro del folio. Verificado: las otras
-diecinueve páginas quedan idénticas al pixel.
+22 páginas. La auditoría cierra:
 
-Dos cosas que mordieron y conviene no repetir:
+| control | resultado |
+|---|---|
+| folios | uno por página, de la 2 a la 21; portada y contacto sin número |
+| índice contra páginas | las 31 filas caen en la página que dicen |
+| códigos contra portadillas | LÁMPARAS 33 · ARTEFACTOS 32 · FUENTES 15 = 80 |
+| diferencia contra el original | las páginas 1, 4, 6, 7, 8, 9, 10, 13 y 22 quedan idénticas al pixel; el resto, explicado |
+| ficha mudada | el SPOT MINI pasa de la 14 a la 16 con **0 px de diferencia** |
 
-- **`Stream.write(datos, filter=...)` espera los datos YA codificados.** Pasarle los bytes
-  crudos con `filter=/FlateDecode` deja el stream ilegible: «unknown compression method».
-  Hay que comprimir con `zlib` antes.
-- **El epígrafe de la foto no puede ir en la coordenada fija del slot.** Con una foto alta
-  —el tubo mide 102x992— el `caption_y` del slot le cae por el medio del cuerpo. Ahora
-  cuelga de la foto y usa el fijo sólo si queda más abajo.
+### Lo que costó
+
+- **La página 11.** El TUBO T5 ocupaba la hoja entera; su tabla, sus códigos y su pie caían
+  por debajo del medio. Hubo que rearmar la ficha en el slot superior y espejar la mitad
+  de abajo.
+- **El logo de los paneles crema.** La primera versión lo traía dibujando `/S17` recortado
+  a la caja del logo, como hace la página 17 del original. Se ve bien, pero **el recorte no
+  saca el texto de la capa**: las páginas nuevas se llevaban entera la ficha de la estaca
+  solar y su número. Ahora se arma con la máscara del logo y la tinta en el gris del
+  documento.
+- **Las correcciones no están sólo en los forms.** La página 14 traía en su propio stream
+  la descripción reescrita del SPOT MINI y su pie de dos renglones. Copiando sólo el form,
+  la ficha se mudaba con el texto viejo: daba 10.461 px de diferencia. Copiando también
+  esos siete grupos, da 0.
+- **`Stream.write(datos, filter=...)` espera los datos YA codificados.** Pasarle bytes
+  crudos con `/FlateDecode` deja el stream ilegible.
+- **El epígrafe no puede ir en la coordenada fija del slot** cuando la foto es alta: al
+  tubo T5 le partía el cuerpo por la mitad.
+- **Sin pérdida y a 900 px el archivo se iba a 12,9 MB.** Bajando cada foto a la resolución
+  a la que de verdad se imprime quedan 8,5, contra 5,2 del original.
+
+### Lo que queda pendiente
+
+- **Texto viejo enterrado**: el catálogo venía con 12 páginas de 20 así y ahora son 16 de
+  22. Lo que agregué son las fichas que tapé para reemplazarlas (el SPOT 12V viejo, el SPOT
+  MINI debajo del plafón, el índice y las listas de portadilla anteriores). No se ve, pero
+  sale al copiar y pegar y al buscar. `limpiar_capa_texto.py` de la skill lo resuelve; hay
+  que pasarlo también por dentro de los forms.
+- **Sin lúmenes** en las cinco fichas nuevas: el cliente no los tiene y no se derivan del
+  vataje. Si aparecen, es agregar una fila.
+- El plafón `TZ-TDC003` va sin fila de Color: la planilla lo llama «Platil» y la foto es
+  blanca.
+- `TZ-AR111-15W-4K DIM` y `TZ-MR11-3W-3K DIM` están en la lista de precios y no en el
+  catálogo.
+- La página de contacto sigue con `panailuminacion@hotmail.com` y el 11-4176-4205.

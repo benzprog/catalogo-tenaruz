@@ -57,18 +57,22 @@ def texto(cat, frag, clave, contenido, x, y, derecha=None, centro=None):
         frag.append(cat.show(contenido, recurso, cuerpo, x, y, trk, color))
 
 
-def ficha(cat, pagina, slot, prod, fondo):
-    """Dibuja una ficha entera en su slot. `fondo` es el color del panel de producto."""
-    frag = []
+def ficha(cat, pagina, slot, prod, fondo, solo_blanco=False):
+    """Dibuja una ficha en su slot. `fondo` es el color del panel de producto.
 
-    # panel blanco limpio; el oscuro se tapa sólo hasta dark_cover para no pisar el logo
-    frag.append(cat.rect(*slot.white_panel, Catalog.WHITE))
-    frag.append(cat.rect(*slot.dark_cover, fondo))
+    Con `solo_blanco` se rehace únicamente la mitad de texto y se deja el panel de
+    producto como está: sirve para ampliar una ficha que ya existe sin tocarle las fotos
+    ni los bloques de variante, que en las lámparas llevan el halo de cada temperatura.
+    """
+    frag = [cat.rect(*slot.white_panel, Catalog.WHITE)]
+    if not solo_blanco:
+        # el panel de producto se tapa sólo hasta dark_cover para no pisar el logo
+        frag.append(cat.rect(*slot.dark_cover, fondo))
 
     # fotos: una por variante física, apiladas si hay más de una
-    fotos = prod["fotos"]
+    fotos = [] if solo_blanco else prod["fotos"]
     cx, cy = slot.photo_center
-    paso = 230.0 if len(fotos) == 1 else 268.0 / len(fotos)
+    paso = 230.0 if len(fotos) <= 1 else 268.0 / len(fotos)
     # con varias fotos hay que reservarle lugar al epígrafe de cada una: si la foto ocupa
     # todo el paso, el epígrafe cae dentro de la foto siguiente
     alto_caja = paso if len(fotos) == 1 else paso - 19.0
@@ -79,8 +83,11 @@ def ficha(cat, pagina, slot, prod, fondo):
             nombre = archivo
             ancho_px, alto_px = prod["medida_foto"]
         else:
+            # a la resolución a la que de verdad se imprime: sin pérdida y a 900 px el
+            # archivo se iba a 12,9 MB contra los 5,2 del original
+            px = round(prod.get("ancho_foto", 210.0) * 300 / 72)
             im = incrustar(cat.pdf, pagina, f"/Im{prod['clave']}{i}",
-                           recomponer(FOTOS / archivo, fondo))
+                           recomponer(FOTOS / archivo, fondo), ancho_px=px)
             nombre = f"/Im{prod['clave']}{i}"
             ancho_px, alto_px = im.size
         ancho = min(prod.get("ancho_foto", 210.0), alto_caja * ancho_px / alto_px)
