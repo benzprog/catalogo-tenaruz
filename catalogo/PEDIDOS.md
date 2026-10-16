@@ -38,5 +38,10 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
 
 | 3 | Foto nueva para **`TZ-MR11-3W-3K`** (MINIDICRO LED, pág. 4, slot inferior) → `fotos/TZ-MR11-3W-3K.webp` | foto guardada |
 | 4 | Foto nueva para **`TZ-MR11-3W-3K DIM`** (mismo slot, bloque 2700K) | **falta el archivo** |
+| 5 | Fotos nuevas para los dos bloques del **MR16 LED** (pág. 5): `TZ-MR16-5W-3K.webp`, `TZ-MR16-5W-6K.webp` | las 2 guardadas |
 - **4.** La foto se ve en el chat pero **no quedó en disco**; hay que remandarla. El
   código ya está en la ficha (bloque 2700K), así que es sólo reemplazar la foto.
+- **5.** La ficha quedó con cuatro códigos (5W en 3000K, 4000K y 6000K, más el de 7W) y
+  **dos bloques de variante**, 3000K y 6000K. Son los dos que llegaron, así que se
+  reemplazan los dos y la ficha queda completa: es el mismo criterio del REFLECTOR, que
+  tiene cuatro códigos y dos fotos.
