@@ -40,7 +40,7 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
 | 4 | Foto nueva para **`TZ-MR11-3W-3K DIM`** (mismo slot, bloque 2700K) | **falta el archivo** |
 | 5 | Fotos nuevas para los dos bloques del **MR16 LED** (pág. 5): `TZ-MR16-5W-3K.webp`, `TZ-MR16-5W-6K.webp` | las 2 guardadas |
 | 6 | Foto nueva para **`TZ-AR70-7W-DIM-3K`** (AR70 LED, pág. 5, slot inferior) → `fotos/TZ-AR70-7W-DIM-3K.webp` | foto guardada |
-| 7 | Foto nueva para **`TZ-AR111-15W-3K`** (AR111 LED, pág. 6, bloque 3000K) → `fotos/TZ-AR111-15W-3K.webp` | 1 de 2 · falta el 4000K |
+| 7 | Fotos nuevas para los dos bloques de la **AR111 LED** (pág. 6): `TZ-AR111-15W-3K.webp`, `TZ-AR111-15W-4K.webp` | las 2 guardadas |
 - **4.** La foto se ve en el chat pero **no quedó en disco**; hay que remandarla. El
   código ya está en la ficha (bloque 2700K), así que es sólo reemplazar la foto.
 - **5.** La ficha quedó con cuatro códigos (5W en 3000K, 4000K y 6000K, más el de 7W) y
@@ -51,5 +51,6 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
   la AR111 habían quedado cruzadas de ficha. **En este archivo están bien**: medida contra
   el casquillo GU10, la lámpara de la ficha AR70 da Ø75 mm —coincide con el Ø70 que declara—
   y la de la AR111 es el reflector ancho y chato que corresponde. No hay nada que corregir.
-- **7.** La ficha de la AR111 tiene **dos bloques**, 3000K y 4000K. Llegó el 3000K; sin el
-  4000K ese bloque queda con la foto vieja al lado de la nueva.
+- **7.** La ficha de la AR111 tiene **dos bloques**, 3000K y 4000K, y llegaron los dos, así
+  que se reemplaza completa. El tercer código, `TZ-AR111-15W-4K DIM`, va listado en el panel
+  blanco sin foto propia, como ya estaba.
