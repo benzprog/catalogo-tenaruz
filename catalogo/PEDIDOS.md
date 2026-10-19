@@ -43,23 +43,30 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
   lámpara. Si se encajan en el hueco de hoy, la lámpara queda más chica que la que
   reemplazan. Al aplicar se escala cada foto por el **cuerpo de la lámpara**, no por el
   recuadro entero: que el cuerpo quede igual o mayor que el actual, creciendo hacia el aire
-  disponible, y se verifica bloque por bloque que no se toquen. Afecta a los pedidos 2, 3,
-  4, 5, 6, 7 y 8.
+  disponible, y se verifica bloque por bloque que no se toquen. Afecta a los pedidos 2, 5,
+  6, 7 y 8, y a los del MR11 cuando lleguen.
 
-| 3 | Foto nueva para **`TZ-MR11-3W-3K`** (MINIDICRO LED, pág. 4, slot inferior) → `fotos/TZ-MR11-3W-3K.webp` | foto guardada |
-| 4 | Foto nueva para **`TZ-MR11-3W-3K DIM`** (mismo slot, bloque 2700K) → `fotos/TZ-MR11-3W-3K-DIM.webp` | foto guardada |
+| 3 | Foto nueva para **`TZ-MR11-3W-3K`** (MINIDICRO LED, pág. 4, slot inferior) | **EN ESPERA** · las enviadas no son del producto |
+| 4 | Foto nueva para **`TZ-MR11-3W-3K DIM`** (mismo slot, bloque 2700K) | **EN ESPERA** · las enviadas no son del producto |
 | 5 | Fotos nuevas para los dos bloques del **MR16 LED** (pág. 5): `TZ-MR16-5W-3K.webp`, `TZ-MR16-5W-6K.webp` | las 2 guardadas |
 | 6 | Foto nueva para **`TZ-AR70-7W-DIM-3K`** (AR70 LED, pág. 5, slot inferior) → `fotos/TZ-AR70-7W-DIM-3K.webp` | foto guardada |
 | 7 | Fotos nuevas para los dos bloques de la **AR111 LED** (pág. 6): `TZ-AR111-15W-3K.webp`, `TZ-AR111-15W-4K.webp` | las 2 guardadas |
 | 8 | Fotos nuevas para los bloques del **PLL LED** (pág. 6, slot inferior): `TZ-PLL-18W-3K.webp`, `TZ-PLL-18W-6K.webp` | 2 de 3 · falta el 4000K |
-- **4.** El código ya está en la ficha (bloque 2700K), así que es sólo reemplazar la foto.
-  La primera que llegó era idéntica byte por byte a la del 3000K; **resuelto**, mandó la
-  correcta. Es una toma propia y más cálida, como corresponde al 2700K: medido sobre la
-  parte encendida da R−B = +47 contra +28 del 3000K, así que los dos bloques se siguen
-  distinguiendo. Verificado además que es la minidicroica y no la dicroica grande: la
-  relación cabeza/zócalo da **1,84**, igual que la del 3000K (1,77) y lejos de la GU10 de
-  50 mm (2,55). La ficha declara zócalo GU10 y Ø35 x 47 mm, así que el casquillo GU10 de la
-  foto es el que corresponde.
+- **3 y 4. EN ESPERA.** El cliente avisó que **las fotos que mandó del MR11 no son del
+  producto** y va a mandar otras. **No se aplica nada en esa ficha** hasta que lleguen las
+  nuevas. Los archivos `TZ-MR11-3W-3K.webp` y `TZ-MR11-3W-3K-DIM.webp` que hay hoy en
+  `fotos/` quedan descartados: se pisan cuando lleguen los reemplazos.
+
+  Para cuando lleguen: la ficha declara **zócalo GU10 y Ø35 x 47 mm**, así que el casquillo
+  que corresponde es GU10 y el cuerpo es el angosto de 35 mm, no la dicroica de 50 mm. La
+  medida que separa a una de otra es la relación cabeza/zócalo: la minidicroica da ~1,8 y
+  la GU10 grande ~2,55. Los dos códigos son cálidos pero distintos —2700K el DIM y 3000K el
+  otro—, y hoy los bloques se distinguen por el resplandor, así que conviene una toma por
+  temperatura y no la misma repetida.
+
+  Aviso sobre mi chequeo anterior: medir la relación cabeza/zócalo sólo probó que las fotos
+  coincidían con las que **ya estaban** en la ficha, no que fueran del producto correcto.
+  Con las nuevas hay que mirar también las medidas declaradas, no sólo el parecido.
 - **5.** La ficha quedó con cuatro códigos (5W en 3000K, 4000K y 6000K, más el de 7W) y
   **dos bloques de variante**, 3000K y 6000K. Son los dos que llegaron, así que se
   reemplazan los dos y la ficha queda completa: es el mismo criterio del REFLECTOR, que
