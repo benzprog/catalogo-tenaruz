@@ -44,15 +44,16 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
   reemplazan. Al aplicar se escala cada foto por el **cuerpo de la lámpara**, no por el
   recuadro entero: que el cuerpo quede igual o mayor que el actual, creciendo hacia el aire
   disponible, y se verifica bloque por bloque que no se toquen. Afecta a los pedidos 2, 5,
-  6, 7, 8 y 9, y a los del MR11 cuando se confirmen.
+  6, 7 y 8, y a los del MR11 cuando se confirmen. El 9 (G4) y el 1 (stick) no, porque son
+  lámparas rectas sin haz dibujado: ahí la foto entra en el hueco tal cual.
 
 | 3 | Foto nueva para **`TZ-MR11-3W-3K`** (MINIDICRO LED, pág. 4, slot inferior) → `fotos/TZ-MR11-3W-3K.webp` | guardada · **la medida no cierra** |
 | 4 | Foto nueva para **`TZ-MR11-3W-3K DIM`** (mismo slot, bloque 2700K) → `fotos/TZ-MR11-3W-3K-DIM.webp` | guardada · **la medida no cierra** |
 | 5 | Fotos nuevas para los dos bloques del **MR16 LED** (pág. 5): `TZ-MR16-5W-3K.webp`, `TZ-MR16-5W-6K.webp` | las 2 guardadas |
 | 6 | Foto nueva para **`TZ-AR70-7W-DIM-3K`** (AR70 LED, pág. 5, slot inferior) → `fotos/TZ-AR70-7W-DIM-3K.webp` | foto guardada |
 | 7 | Fotos nuevas para los dos bloques de la **AR111 LED** (pág. 6): `TZ-AR111-15W-3K.webp`, `TZ-AR111-15W-4K.webp` | las 2 guardadas |
-| 8 | Fotos nuevas para los bloques del **PLL LED** (pág. 6, slot inferior): `TZ-PLL-18W-3K.webp`, `TZ-PLL-18W-6K.webp` | 2 de 3 · falta el 4000K |
-| 9 | Foto nueva para **`TZ-G412V-2W-3K`** (BIPIN COB G4 12V 2W, pág. 8) → `fotos/TZ-G412V-2W-3K.webp` | foto guardada · medida verificada |
+| 8 | Fotos nuevas para los tres bloques del **PLL LED** (pág. 6, slot inferior): `TZ-PLL-18W-3K/4K/6K.webp` | **las 3 guardadas** |
+| 9 | Fotos nuevas para los tres bloques del **BIPIN COB G4 12V 2W** (pág. 8): `TZ-G412V-2W-3K/4K/6K.webp` | **las 3 guardadas** · medidas verificadas |
 - **3 y 4. La medida no cierra, pendiente de confirmar.** Llegó una toma nueva del 3000K,
   en tres cuartos y con lente transparente, distinta de las descartadas. La del 2700K se vio
   en el chat pero el archivo no bajó.
@@ -106,11 +107,10 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
   blanco sin foto propia, como ya estaba.
 - **8.** La ficha del PLL tiene **tres bloques** apilados —3000K, 4000K y 6000K—, cada uno
   con el tubo **horizontal** y su resplandor del color de la temperatura. Las dos fotos que
-  llegaron son horizontales y entran en ese mismo molde sin cambiar nada. Son tomas
-  distintas y el tono acompaña: medido sobre el tubo encendido, el 3000K da R−B = +32
-  (cálido) y el 6000K R−B = −16 (frío). **Falta el 4000K**: lo mandó por chat pero el
-  archivo no bajó, así que hay que remandarlo. Mientras falte, ese bloque queda con la foto
-  que ya tiene.
+  llegaron son horizontales y entran en ese mismo molde sin cambiar nada. **Están las tres**
+  y son tomas distintas, con el tono en el orden correcto: medido sobre el tubo encendido,
+  R−B da **+32** en el 3000K, **+7** en el 4000K y **−16** en el 6000K. La ficha se reemplaza
+  completa.
 - **9.** El código **ya existe en el catálogo**: es la ficha BIPIN COB G4 12V 2W de la
   página 8, con `TZ-G412V-2W-3K`, `-4K` y `-6K`. Así que es un reemplazo de foto, no un
   producto nuevo, y no toca ni el índice ni los contadores de las portadillas.
@@ -120,6 +120,12 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
   declarados, diferencia que se explica por el largo de los pines en el render. Esta foto sí
   corresponde al producto.
 
-  La ficha tiene tres bloques de variante —3000K, 4000K y 6000K— y llegó sólo el 3000K, así
-  que ese bloque va a quedar con otra toma que los otros dos. Si hay del 4000K y del 6000K,
-  conviene reemplazar los tres juntos.
+  **Llegaron las tres** y la ficha se reemplaza completa. Las tres miden igual —cuerpo de
+  9,4 a 9,5 mm contra los 10 declarados— y el tono va en el orden correcto: R−B **+71** en el
+  3000K, **+20** en el 4000K y **−11** en el 6000K.
+
+  Aparte, al leer esta ficha apareció que **su descripción está duplicada y encimada en la
+  capa de texto** del PDF ("Reemplaza Ideal una halógena para reemplazar con tamaño los
+  bipines reducido…"). Es una corrección vieja que se tapó sin borrar. No se ve impreso pero
+  sale al copiar o buscar texto. Entra en la limpieza de capa enterrada que está pendiente de
+  decisión.
