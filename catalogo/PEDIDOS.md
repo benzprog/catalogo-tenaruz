@@ -5,7 +5,7 @@ El cliente los va pasando de a uno; se aplican todos juntos cuando avise **LISTO
 | # | qué | estado |
 |---|---|---|
 | 1 | Reemplazar la foto del **LED STICK T45** (`TZ-STICKE27-12W-6K`, pág. 7, slot inferior) por `fotos/stick-t45.webp` | foto guardada |
-| 2 | Fotos nuevas para los tres bloques de la **DICROICA LED GU10 7W** (pág. 4): `TZ-GU10-7W-3K/4K/6K.webp` | las 3 guardadas |
+| 2 | Fotos nuevas para los tres bloques de la **DICROICA LED GU10 7W** (pág. 4): `TZ-GU10-7W-3K/4K/6K.webp` | las 3 guardadas · **van más grandes** |
 
 ## Corregido en el camino
 
@@ -31,22 +31,35 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
   lámpara ocupa apenas la mitad de abajo del cuadro, así que al entrar en el hueco del
   bloque (unos 45 x 46 pt) quedaría mucho más chica que las otras dos.
   Llegaron las tres en la misma toma, así que se reemplaza el bloque de variantes entero.
-  **Van más grandes que las actuales**, que es lo que resuelve el haz sin achicar la
-  lámpara. Medido sobre la página: cada foto ocupa hoy **54 x 46,3 pt** y entre una y la
-  siguiente quedan **51,1 pt de aire**, así que hay lugar para llevarlas a unos 85-90 pt de
-  alto sin que se toquen. El bloque de texto de cada variante no se mueve.
+  **Confirmado que van más grandes**, que es lo que resuelve el haz sin achicar la lámpara.
+  Medido sobre la página: cada foto ocupa hoy **54 x 46,3 pt** y entre una y la siguiente
+  quedan **51,1 pt de aire** (paso de 97,4 pt), así que entran a unos **85 pt de alto** y
+  quedan 12 pt de aire. A lo ancho sobra: el bloque de texto arranca a 128,6 pt y la foto va
+  centrada en 72,5 pt, así que admite hasta unos 95 pt y estas piden 79. El bloque de texto
+  de cada variante no se mueve.
+
+  **Regla para todas las fotos nuevas de lámpara, no sólo estas.** Las tomas nuevas son de
+  frente con el haz dibujado hacia arriba, así que buena parte del alto es resplandor y no
+  lámpara. Si se encajan en el hueco de hoy, la lámpara queda más chica que la que
+  reemplazan. Al aplicar se escala cada foto por el **cuerpo de la lámpara**, no por el
+  recuadro entero: que el cuerpo quede igual o mayor que el actual, creciendo hacia el aire
+  disponible, y se verifica bloque por bloque que no se toquen. Afecta a los pedidos 2, 3,
+  4, 5, 6, 7 y 8.
 
 | 3 | Foto nueva para **`TZ-MR11-3W-3K`** (MINIDICRO LED, pág. 4, slot inferior) → `fotos/TZ-MR11-3W-3K.webp` | foto guardada |
-| 4 | Foto nueva para **`TZ-MR11-3W-3K DIM`** (mismo slot, bloque 2700K) → `fotos/TZ-MR11-3W-3K-DIM.webp` | guardada · **a confirmar** |
+| 4 | Foto nueva para **`TZ-MR11-3W-3K DIM`** (mismo slot, bloque 2700K) → `fotos/TZ-MR11-3W-3K-DIM.webp` | foto guardada |
 | 5 | Fotos nuevas para los dos bloques del **MR16 LED** (pág. 5): `TZ-MR16-5W-3K.webp`, `TZ-MR16-5W-6K.webp` | las 2 guardadas |
 | 6 | Foto nueva para **`TZ-AR70-7W-DIM-3K`** (AR70 LED, pág. 5, slot inferior) → `fotos/TZ-AR70-7W-DIM-3K.webp` | foto guardada |
 | 7 | Fotos nuevas para los dos bloques de la **AR111 LED** (pág. 6): `TZ-AR111-15W-3K.webp`, `TZ-AR111-15W-4K.webp` | las 2 guardadas |
 | 8 | Fotos nuevas para los bloques del **PLL LED** (pág. 6, slot inferior): `TZ-PLL-18W-3K.webp`, `TZ-PLL-18W-6K.webp` | 2 de 3 · falta el 4000K |
 - **4.** El código ya está en la ficha (bloque 2700K), así que es sólo reemplazar la foto.
-  **Es el mismo archivo que el del 3000K**, idéntico byte por byte. Puede ser a propósito
-  —2700K y 3000K son los dos cálidos y quizá hay una sola toma—, pero hoy los dos bloques
-  de esa ficha se distinguen por el resplandor, y con la misma foto van a quedar iguales.
-  En el resto de las fichas vino una toma distinta por temperatura. Pendiente de confirmar.
+  La primera que llegó era idéntica byte por byte a la del 3000K; **resuelto**, mandó la
+  correcta. Es una toma propia y más cálida, como corresponde al 2700K: medido sobre la
+  parte encendida da R−B = +47 contra +28 del 3000K, así que los dos bloques se siguen
+  distinguiendo. Verificado además que es la minidicroica y no la dicroica grande: la
+  relación cabeza/zócalo da **1,84**, igual que la del 3000K (1,77) y lejos de la GU10 de
+  50 mm (2,55). La ficha declara zócalo GU10 y Ø35 x 47 mm, así que el casquillo GU10 de la
+  foto es el que corresponde.
 - **5.** La ficha quedó con cuatro códigos (5W en 3000K, 4000K y 6000K, más el de 7W) y
   **dos bloques de variante**, 3000K y 6000K. Son los dos que llegaron, así que se
   reemplazan los dos y la ficha queda completa: es el mismo criterio del REFLECTOR, que
