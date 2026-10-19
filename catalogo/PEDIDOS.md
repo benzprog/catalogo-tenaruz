@@ -54,6 +54,7 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
 | 7 | Fotos nuevas para los dos bloques de la **AR111 LED** (pág. 6): `TZ-AR111-15W-3K.webp`, `TZ-AR111-15W-4K.webp` | las 2 guardadas |
 | 8 | Fotos nuevas para los tres bloques del **PLL LED** (pág. 6, slot inferior): `TZ-PLL-18W-3K/4K/6K.webp` | **las 3 guardadas** |
 | 9 | Fotos nuevas para los tres bloques del **BIPIN COB G4 12V 2W** (pág. 8): `TZ-G412V-2W-3K/4K/6K.webp` | **las 3 guardadas** · medidas verificadas |
+| 10 | Fotos nuevas para los tres bloques del **BIPIN LED G4 12V 4W** (pág. 8): `TZ-G412V-4W-3K/4K/6K.webp` | las 3 guardadas · **el 3000K no es la misma lámpara** |
 - **3 y 4. La medida no cierra, pendiente de confirmar.** Llegó una toma nueva del 3000K,
   en tres cuartos y con lente transparente, distinta de las descartadas. La del 2700K se vio
   en el chat pero el archivo no bajó.
@@ -129,3 +130,26 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
   bipines reducido…"). Es una corrección vieja que se tapó sin borrar. No se ve impreso pero
   sale al copiar o buscar texto. Entra en la limpieza de capa enterrada que está pendiente de
   decisión.
+- **10.** Es la otra ficha de G4 de la página 8, la de 4W SMD, que también tiene tres
+  bloques. Llegaron las tres fotos y son tomas distintas, con el tono en orden.
+
+  **Pero el 3000K no es la misma lámpara que las otras dos.** Puestas las tres al mismo ancho
+  de cuerpo se ve directo (`muestras/g4-4w-comparacion.png`):
+
+  | foto | filas de LED | LEDs a la vista |
+  |---|---|---|
+  | `TZ-G412V-4W-3K` | **4** | 12 |
+  | `TZ-G412V-4W-4K` | **5** | 15 |
+  | `TZ-G412V-4W-6K` | **5** | 15 |
+
+  En el 3000K los LED son más grandes y hay una fila menos. El 4000K y el 6000K coinciden
+  entre sí. Como los tres bloques van uno al lado del otro en la misma ficha, la diferencia
+  se va a notar.
+
+  Las medidas acompañan: contra el paso de los pines G4 (4 mm), el cuerpo da **13,5 mm** en
+  el 3000K contra **16,6 mm** en el 4000K, y la ficha declara **16 mm**. O sea que el que
+  cierra con la ficha es el 4000K y el que se desvía es el 3000K.
+
+  **Pendiente de que el cliente confirme.** Si son dos versiones del mismo producto, va igual;
+  si el proveedor mandó la foto de otro modelo, falta la del 3000K. Los otros dos se pueden
+  aplicar igual.
