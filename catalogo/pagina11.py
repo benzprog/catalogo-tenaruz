@@ -65,7 +65,7 @@ A60 = {
 }
 
 
-def main(entrada=ORIGEN, salida=BASE / "_paso1.pdf"):
+def main(entrada=BASE / "_paso0.pdf", salida=BASE / "_paso1.pdf"):
     cat = Catalog(str(entrada))
     pagina = cat.pdf.pages[10]
 

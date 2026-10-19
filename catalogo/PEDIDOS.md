@@ -1,6 +1,63 @@
-# Cambios pendientes de aplicar
+# Cambios de fotos — APLICADOS
 
-El cliente los va pasando de a uno; se aplican todos juntos cuando avise **LISTO**.
+El cliente los fue pasando de a uno y avisó **LISTO** el 19/10/2026. Los once están
+aplicados y auditados. Quedan abajo, tal como se registraron, porque documentan de dónde
+salió cada foto y las dos salvedades que el cliente decidió pasar por alto.
+
+## Cómo se aplicaron
+
+El módulo es `fotos.py`, que entra como **paso cero** del pipeline: lee el original intacto
+y escribe `_paso0.pdf`, del que sigue `pagina11.py`. Va primero porque `artefactos.py`
+inserta dos páginas y correría la numeración.
+
+Tres cosas que costaron y conviene no volver a descubrir:
+
+1. **La matriz de afuera tiene `D` negativo.** El `cm` que se reescribe es el de adentro, y
+   con `D < 0` el cuadrado unidad entra al revés: `unit(0,0)` cae en el **pie** de la caja,
+   no en el techo. Con el signo equivocado las lámparas salen cabeza abajo.
+2. **Los paneles son de dos negros.** Los bloques de variante van sobre `#1a1a1a` y los
+   slots de foto única sobre `#1e1e1e`. Componer sobre el que no es deja el recuadro de la
+   caja a la vista.
+3. **No hay que pasar estas fotos por `recorte.py`.** Ese módulo separa el producto de un
+   fondo blanco con un umbral, y estas tomas ya traen canal alfa. El umbral convierte el
+   degradé del haz en un contorno binario y el haz termina cortado en un trapecio de borde
+   recto sobre el panel liso. Componer con el alfa lo resuelve solo.
+
+Y una decisión de encuadre: el tamaño sale de igualar el **área** de la lámpara, no cada
+medida por separado. Forzar las dos medidas infla las tomas de tres cuartos, que son anchas
+por naturaleza —el MR11 terminaba 2,4 veces más ancho que la foto que reemplaza y tocando
+el borde del panel—. Con el área la lámpara nueva pesa lo mismo que la vieja, conserva su
+proporción y ninguna foto queda estirada ni más ancha.
+
+El recuadro de la lámpara de cada foto está medido **a mano** sobre una grilla al 10 %. Los
+detectores automáticos no sirvieron: el haz es opaco, tiene el mismo color que el lente y
+en varias tomas es tan liso como el cuerpo blanco, así que por alfa, por saturación o por
+gradiente las tres tomas de un mismo producto daban recuadros distintos.
+
+## Auditoría
+
+- 22 páginas, las mismas de antes.
+- Cambiaron **sólo las páginas 4, 5, 6, 7, 8 y 10**; las otras dieciséis quedaron idénticas
+  píxel a píxel contra la versión anterior.
+- Dentro de esas seis, **todas** las diferencias caen dentro de las zonas de foto: no se
+  tocó ni un texto.
+- **82 códigos**, los mismos que la planilla, sin diferencias en ninguna dirección.
+- Contadores por sección: **35 LÁMPARAS + 32 ARTEFACTOS + 15 ACCESORIOS**.
+- La página del índice quedó idéntica y los títulos de las fichas no cambiaron, así que la
+  paginación sigue siendo la ya auditada.
+
+## Lo que el cliente decidió pasar por alto
+
+Avisó **LISTO** con dos cosas marcadas y sin responderlas, así que se aplicaron igual:
+
+- **MINIDICRO (pedidos 3 y 4).** Las dos fotos del MR11 miden cabeza/cilindro **2,05** y
+  **2,16**, contra **1,62** de la minidicroica que estaba y **2,32** de la dicroica Ø50. La
+  ficha declara **Ø35 x 47 mm**. Si el producto cambió, hay que corregir también las
+  medidas de la ficha.
+- **BIPIN LED G4 4W (pedido 10).** El 3000K es otra lámpara que el 4000K y el 6000K: cuatro
+  filas de LED contra cinco. Los tres bloques van uno al lado del otro.
+
+## El registro, como se fue armando
 
 | # | qué | estado |
 |---|---|---|
@@ -54,7 +111,8 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
 | 7 | Fotos nuevas para los dos bloques de la **AR111 LED** (pág. 6): `TZ-AR111-15W-3K.webp`, `TZ-AR111-15W-4K.webp` | las 2 guardadas |
 | 8 | Fotos nuevas para los tres bloques del **PLL LED** (pág. 6, slot inferior): `TZ-PLL-18W-3K/4K/6K.webp` | **las 3 guardadas** |
 | 9 | Fotos nuevas para los tres bloques del **BIPIN COB G4 12V 2W** (pág. 8): `TZ-G412V-2W-3K/4K/6K.webp` | **las 3 guardadas** · medidas verificadas |
-| 10 | Fotos nuevas para los tres bloques del **BIPIN LED G4 12V 4W** (pág. 8): `TZ-G412V-4W-3K/4K/6K.webp` | las 3 guardadas · **el 3000K no es la misma lámpara** |
+| 10 | Fotos nuevas para los tres bloques del **BIPIN LED G4 12V 4W** (pág. 8): `TZ-G412V-4W-3K/4K/6K.webp` | aplicado · **el 3000K no es la misma lámpara** |
+| 11 | Foto nueva para **`TZ-A60E27-12W-DIM-3K`** (BULBO LED A60 E27 12W DIMERIZABLE, pág. 10) → `fotos/TZ-A60E27-12W-DIM-3K.webp` | aplicado · medida verificada |
 - **3 y 4. La medida no cierra, pendiente de confirmar.** Llegó una toma nueva del 3000K,
   en tres cuartos y con lente transparente, distinta de las descartadas. La del 2700K se vio
   en el chat pero el archivo no bajó.
@@ -153,3 +211,9 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
   **Pendiente de que el cliente confirme.** Si son dos versiones del mismo producto, va igual;
   si el proveedor mandó la foto de otro modelo, falta la del 3000K. Los otros dos se pueden
   aplicar igual.
+- **11.** Reemplazo de foto en una ficha de un solo código, así que no toca índice ni
+  contadores. **Medida verificada:** la proporción bulbo/alto da **0,52** contra el 0,50 que
+  declara la ficha (Ø60 x 120 mm), así que la lámpara de la foto es la de la ficha.
+
+  Esta ficha también tiene la **capa de texto duplicada y encimada**, igual que la del G4:
+  se lee "Temperatura / Tensión 3000K 220V" montado. Entra en la limpieza pendiente.
