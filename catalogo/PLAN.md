@@ -167,6 +167,4 @@ ESTACA SOLAR, que es original y va sobre crema, usa `#6d6d6d`.
   vataje. Si aparecen, es agregar una fila.
 - El plafón `TZ-TDC003` va sin fila de Color: la planilla lo llama «Platil» y la foto es
   blanca.
-- `TZ-AR111-15W-4K DIM` y `TZ-MR11-3W-3K DIM` están en la lista de precios y no en el
-  catálogo.
 - La página de contacto sigue con `panailuminacion@hotmail.com` y el 11-4176-4205.
