@@ -41,7 +41,7 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
 | 5 | Fotos nuevas para los dos bloques del **MR16 LED** (pág. 5): `TZ-MR16-5W-3K.webp`, `TZ-MR16-5W-6K.webp` | las 2 guardadas |
 | 6 | Foto nueva para **`TZ-AR70-7W-DIM-3K`** (AR70 LED, pág. 5, slot inferior) → `fotos/TZ-AR70-7W-DIM-3K.webp` | foto guardada |
 | 7 | Fotos nuevas para los dos bloques de la **AR111 LED** (pág. 6): `TZ-AR111-15W-3K.webp`, `TZ-AR111-15W-4K.webp` | las 2 guardadas |
-| 8 | Foto nueva para **`TZ-PLL-18W-3K`** (PLL LED, pág. 6, slot inferior, bloque 3000K) → `fotos/TZ-PLL-18W-3K.webp` | 1 de 3 · faltan 4000K y 6000K |
+| 8 | Fotos nuevas para los bloques del **PLL LED** (pág. 6, slot inferior): `TZ-PLL-18W-3K.webp`, `TZ-PLL-18W-6K.webp` | 2 de 3 · falta el 4000K |
 - **4.** El código ya está en la ficha (bloque 2700K), así que es sólo reemplazar la foto.
   **Es el mismo archivo que el del 3000K**, idéntico byte por byte. Puede ser a propósito
   —2700K y 3000K son los dos cálidos y quizá hay una sola toma—, pero hoy los dos bloques
@@ -59,6 +59,9 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
   que se reemplaza completa. El tercer código, `TZ-AR111-15W-4K DIM`, va listado en el panel
   blanco sin foto propia, como ya estaba.
 - **8.** La ficha del PLL tiene **tres bloques** apilados —3000K, 4000K y 6000K—, cada uno
-  con el tubo **horizontal** y su resplandor del color de la temperatura. La foto nueva es
-  horizontal y con el resplandor cálido, así que entra en ese mismo molde sin cambiar nada.
-  Faltan el 4000K y el 6000K.
+  con el tubo **horizontal** y su resplandor del color de la temperatura. Las dos fotos que
+  llegaron son horizontales y entran en ese mismo molde sin cambiar nada. Son tomas
+  distintas y el tono acompaña: medido sobre el tubo encendido, el 3000K da R−B = +32
+  (cálido) y el 6000K R−B = −16 (frío). **Falta el 4000K**: lo mandó por chat pero el
+  archivo no bajó, así que hay que remandarlo. Mientras falte, ese bloque queda con la foto
+  que ya tiene.
