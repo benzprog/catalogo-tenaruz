@@ -37,13 +37,16 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
   alto sin que se toquen. El bloque de texto de cada variante no se mueve.
 
 | 3 | Foto nueva para **`TZ-MR11-3W-3K`** (MINIDICRO LED, pág. 4, slot inferior) → `fotos/TZ-MR11-3W-3K.webp` | foto guardada |
-| 4 | Foto nueva para **`TZ-MR11-3W-3K DIM`** (mismo slot, bloque 2700K) | **falta el archivo** |
+| 4 | Foto nueva para **`TZ-MR11-3W-3K DIM`** (mismo slot, bloque 2700K) → `fotos/TZ-MR11-3W-3K-DIM.webp` | guardada · **a confirmar** |
 | 5 | Fotos nuevas para los dos bloques del **MR16 LED** (pág. 5): `TZ-MR16-5W-3K.webp`, `TZ-MR16-5W-6K.webp` | las 2 guardadas |
 | 6 | Foto nueva para **`TZ-AR70-7W-DIM-3K`** (AR70 LED, pág. 5, slot inferior) → `fotos/TZ-AR70-7W-DIM-3K.webp` | foto guardada |
 | 7 | Fotos nuevas para los dos bloques de la **AR111 LED** (pág. 6): `TZ-AR111-15W-3K.webp`, `TZ-AR111-15W-4K.webp` | las 2 guardadas |
 | 8 | Foto nueva para **`TZ-PLL-18W-3K`** (PLL LED, pág. 6, slot inferior, bloque 3000K) → `fotos/TZ-PLL-18W-3K.webp` | 1 de 3 · faltan 4000K y 6000K |
-- **4.** La foto se ve en el chat pero **no quedó en disco**; hay que remandarla. El
-  código ya está en la ficha (bloque 2700K), así que es sólo reemplazar la foto.
+- **4.** El código ya está en la ficha (bloque 2700K), así que es sólo reemplazar la foto.
+  **Es el mismo archivo que el del 3000K**, idéntico byte por byte. Puede ser a propósito
+  —2700K y 3000K son los dos cálidos y quizá hay una sola toma—, pero hoy los dos bloques
+  de esa ficha se distinguen por el resplandor, y con la misma foto van a quedar iguales.
+  En el resto de las fichas vino una toma distinta por temperatura. Pendiente de confirmar.
 - **5.** La ficha quedó con cuatro códigos (5W en 3000K, 4000K y 6000K, más el de 7W) y
   **dos bloques de variante**, 3000K y 6000K. Son los dos que llegaron, así que se
   reemplazan los dos y la ficha queda completa: es el mismo criterio del REFLECTOR, que
