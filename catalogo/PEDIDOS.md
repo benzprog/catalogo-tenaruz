@@ -44,29 +44,49 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
   reemplazan. Al aplicar se escala cada foto por el **cuerpo de la lámpara**, no por el
   recuadro entero: que el cuerpo quede igual o mayor que el actual, creciendo hacia el aire
   disponible, y se verifica bloque por bloque que no se toquen. Afecta a los pedidos 2, 5,
-  6, 7 y 8, y a los del MR11 cuando lleguen.
+  6, 7, 8 y 9, y a los del MR11 cuando se confirmen.
 
-| 3 | Foto nueva para **`TZ-MR11-3W-3K`** (MINIDICRO LED, pág. 4, slot inferior) | **EN ESPERA** · las enviadas no son del producto |
-| 4 | Foto nueva para **`TZ-MR11-3W-3K DIM`** (mismo slot, bloque 2700K) | **EN ESPERA** · las enviadas no son del producto |
+| 3 | Foto nueva para **`TZ-MR11-3W-3K`** (MINIDICRO LED, pág. 4, slot inferior) → `fotos/TZ-MR11-3W-3K.webp` | guardada · **la medida no cierra** |
+| 4 | Foto nueva para **`TZ-MR11-3W-3K DIM`** (mismo slot, bloque 2700K) | **falta el archivo** · se vio en el chat, no bajó |
 | 5 | Fotos nuevas para los dos bloques del **MR16 LED** (pág. 5): `TZ-MR16-5W-3K.webp`, `TZ-MR16-5W-6K.webp` | las 2 guardadas |
 | 6 | Foto nueva para **`TZ-AR70-7W-DIM-3K`** (AR70 LED, pág. 5, slot inferior) → `fotos/TZ-AR70-7W-DIM-3K.webp` | foto guardada |
 | 7 | Fotos nuevas para los dos bloques de la **AR111 LED** (pág. 6): `TZ-AR111-15W-3K.webp`, `TZ-AR111-15W-4K.webp` | las 2 guardadas |
 | 8 | Fotos nuevas para los bloques del **PLL LED** (pág. 6, slot inferior): `TZ-PLL-18W-3K.webp`, `TZ-PLL-18W-6K.webp` | 2 de 3 · falta el 4000K |
-- **3 y 4. EN ESPERA.** El cliente avisó que **las fotos que mandó del MR11 no son del
-  producto** y va a mandar otras. **No se aplica nada en esa ficha** hasta que lleguen las
-  nuevas. Los archivos `TZ-MR11-3W-3K.webp` y `TZ-MR11-3W-3K-DIM.webp` que hay hoy en
-  `fotos/` quedan descartados: se pisan cuando lleguen los reemplazos.
+| 9 | Foto nueva para **`TZ-G412V-2W-3K`** (BIPIN COB G4 12V 2W, pág. 8) | **falta el archivo** · se vio en el chat, no bajó |
+- **3 y 4. La medida no cierra, pendiente de confirmar.** Llegó una toma nueva del 3000K,
+  en tres cuartos y con lente transparente, distinta de las descartadas. La del 2700K se vio
+  en el chat pero el archivo no bajó.
 
-  Para cuando lleguen: la ficha declara **zócalo GU10 y Ø35 x 47 mm**, así que el casquillo
-  que corresponde es GU10 y el cuerpo es el angosto de 35 mm, no la dicroica de 50 mm. La
-  medida que separa a una de otra es la relación cabeza/zócalo: la minidicroica da ~1,8 y
-  la GU10 grande ~2,55. Los dos códigos son cálidos pero distintos —2700K el DIM y 3000K el
-  otro—, y hoy los bloques se distinguen por el resplandor, así que conviene una toma por
-  temperatura y no la misma repetida.
+  **El problema es el tamaño de la lámpara.** La ficha declara **zócalo GU10 y Ø35 x 47 mm**.
+  El casquillo GU10 de la foto está bien, pero el cuerpo no. La medida que lo delata es la
+  relación entre el diámetro de la cabeza y el del cilindro del zócalo, que no depende de la
+  escala ni del encuadre:
 
-  Aviso sobre mi chequeo anterior: medir la relación cabeza/zócalo sólo probó que las fotos
-  coincidían con las que **ya estaban** en la ficha, no que fueran del producto correcto.
-  Con las nuevas hay que mirar también las medidas declaradas, no sólo el parecido.
+  | foto | cabeza / cilindro |
+  |---|---|
+  | la que hoy está en la ficha MINIDICRO (Ø35) | **1,62** |
+  | la que hoy está en la ficha DICROICA (Ø50) | **2,32** |
+  | GU10 7W del cliente (Ø50) | 2,27 / 2,48 / 2,57 |
+  | MR11 descartadas por el cliente | 1,93 / 1,85 |
+  | **MR11 3000K nueva** | **1,96** |
+
+  O sea que la nueva mide **casi igual que las que el cliente descartó** y lejos de la
+  minidicroica que hoy está en el catálogo. Medida contra el paso de los pines GU10, que son
+  10 mm fijos, da unos **43 mm de cabeza** cuando la ficha declara 35.
+
+  Dos salvedades honestas: el tres cuartos agranda algo la cabeza porque queda más cerca de
+  la cámara, así que el número real es algo menor que 1,96 —pero no baja a 1,62—; y el
+  render no parece dimensionalmente fiel, porque con la misma regla la lámpara da unos 70 mm
+  de largo contra los 47 declarados. Por eso vale la relación y no el milímetro.
+
+  **No se aplica nada en esta ficha hasta que el cliente confirme.** Si el producto es el que
+  está declarado, falta la foto; si cambió el producto, hay que corregir también las medidas
+  de la ficha.
+
+  Aviso sobre mi chequeo anterior: comparar la foto contra la que **ya estaba** en la ficha
+  sólo probaba parecido, no que fuera el producto correcto. La referencia buena es la medida
+  declarada.
+
 - **5.** La ficha quedó con cuatro códigos (5W en 3000K, 4000K y 6000K, más el de 7W) y
   **dos bloques de variante**, 3000K y 6000K. Son los dos que llegaron, así que se
   reemplazan los dos y la ficha queda completa: es el mismo criterio del REFLECTOR, que
@@ -85,3 +105,7 @@ se repita. Contados bien, catálogo y planilla dan **82 códigos cada uno, sin d
   (cálido) y el 6000K R−B = −16 (frío). **Falta el 4000K**: lo mandó por chat pero el
   archivo no bajó, así que hay que remandarlo. Mientras falte, ese bloque queda con la foto
   que ya tiene.
+- **9.** El código **ya existe en el catálogo**: es la ficha BIPIN COB G4 12V 2W de la
+  página 8, con `TZ-G412V-2W-3K`, `-4K` y `-6K`. Así que es un reemplazo de foto, no un
+  producto nuevo, y no toca ni el índice ni los contadores de las portadillas. La foto se
+  vio en el chat pero el archivo no bajó; falta remandarla.
