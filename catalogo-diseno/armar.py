@@ -40,36 +40,36 @@ LINEA = (0.80, 0.80, 0.80)
 
 # Las 31 fichas del catálogo técnico, en orden. `None` = todavía no está diseñada.
 FICHAS = [
-    ("LÁMPARAS Y TUBOS LED", "DICROICA LED", "GU10 7W", None),
-    ("LÁMPARAS Y TUBOS LED", "MINIDICRO LED", "GU10 3W", "02"),
-    ("LÁMPARAS Y TUBOS LED", "MR16 LED", "12V 5W / 7W", "03"),
-    ("LÁMPARAS Y TUBOS LED", "AR70 LED", "GU10 7W DIMERIZABLE", "04"),
-    ("LÁMPARAS Y TUBOS LED", "AR111 LED", "GU10 15W", "05"),
-    ("LÁMPARAS Y TUBOS LED", "PLL LED", "2G11 18W", "06"),
-    ("LÁMPARAS Y TUBOS LED", "PLD LED", "G24D 9W", "07"),
-    ("LÁMPARAS Y TUBOS LED", "LED STICK T45", "E27 12W", "08"),
-    ("LÁMPARAS Y TUBOS LED", "BIPIN COB", "G4 12V 2W", "09"),
-    ("LÁMPARAS Y TUBOS LED", "BIPIN LED", "G4 12V 4W", "10"),
-    ("LÁMPARAS Y TUBOS LED", "BIPIN COB", "G9 220V 3W", "11"),
-    ("LÁMPARAS Y TUBOS LED", "BIPIN LED", "G9 220V 6W", "12"),
-    ("LÁMPARAS Y TUBOS LED", "GOTA LED", "E27 5W", "13"),
-    ("LÁMPARAS Y TUBOS LED", "BULBO LED A60", "E27 12W DIMERIZABLE", "14"),
-    ("LÁMPARAS Y TUBOS LED", "TUBO T5 LED", "18W 1149 mm", "15"),
-    ("LÁMPARAS Y TUBOS LED", "BULBO A60 LED", "E27 12V/24V 9W", "16"),
-    ("ARTEFACTOS", "SPOT FIJO EMBUTIR", "COB 3W Ø38 mm", "17"),
-    ("ARTEFACTOS", "SPOT MÓVIL EMBUTIR", "COB 3W Ø52 mm", "18"),
-    ("ARTEFACTOS", "SPOT 12V MÓVIL", "3W / 2,5W", "19"),
-    ("ARTEFACTOS", "PLAFÓN LED ALUMINIO", "12V 2,5W Ø60 mm", "20"),
-    ("ARTEFACTOS", "PANEL REDONDO EMBUTIR", "12V 3W Ø83 mm BLANCO", "21"),
-    ("ARTEFACTOS", "PANEL REDONDO EMBUTIR", "12V 3W Ø70 mm NEGRO", None),
-    ("ARTEFACTOS", "SPOT MINI EMBUTIR REDONDO", "PARA MINIDICROICA", None),
-    ("ARTEFACTOS", "MINISPOT COB ALUMINIO", "12V 1W Ø20 mm", None),
-    ("ARTEFACTOS", "REFLECTOR EXTERIOR LED", "12V · IP65", None),
-    ("ARTEFACTOS", "APLIQUE CURVO EXTERIOR", "GU10 · IP65", None),
-    ("ARTEFACTOS", "APLIQUE RECTO EXTERIOR", "GU10 · IP65", None),
-    ("ARTEFACTOS", "ESTACA ALUMINIO", "1 x GU10 · IP67", None),
-    ("ARTEFACTOS", "ESTACA SOLAR LED", "28 LED · IP67", None),
-    ("FUENTES SWITCHING", "FUENTE SWITCHING METÁLICA SLIM", "12V / 24V", "30"),
+    ("LÁMPARAS Y TUBOS LED", "DICROICA LED", "GU10 7W", "01", "3 temperaturas · versión dimerizable"),
+    ("LÁMPARAS Y TUBOS LED", "MINIDICRO LED", "GU10 3W", "02", "3000K · versión dimerizable 2700K"),
+    ("LÁMPARAS Y TUBOS LED", "MR16 LED", "12V 5W / 7W", "03", "5W en 3 temperaturas · 7W en 3000K"),
+    ("LÁMPARAS Y TUBOS LED", "AR70 LED", "GU10 7W DIMERIZABLE", "04", "3000K · dimerizable"),
+    ("LÁMPARAS Y TUBOS LED", "AR111 LED", "GU10 15W", "05", "2 temperaturas · dimerizable en 4000K"),
+    ("LÁMPARAS Y TUBOS LED", "PLL LED", "2G11 18W", "06", "3 temperaturas"),
+    ("LÁMPARAS Y TUBOS LED", "PLD LED", "G24D 9W", "07", "2 temperaturas"),
+    ("LÁMPARAS Y TUBOS LED", "LED STICK T45", "E27 12W", "08", "6000K · no dimerizable"),
+    ("LÁMPARAS Y TUBOS LED", "BIPIN COB", "G4 12V 2W", "09", "3 temperaturas · sin parpadeo"),
+    ("LÁMPARAS Y TUBOS LED", "BIPIN LED", "G4 12V 4W", "10", "3 temperaturas · sin parpadeo"),
+    ("LÁMPARAS Y TUBOS LED", "BIPIN COB", "G9 220V 3W", "11", "2 temperaturas"),
+    ("LÁMPARAS Y TUBOS LED", "BIPIN LED", "G9 220V 6W", "12", "4000K"),
+    ("LÁMPARAS Y TUBOS LED", "GOTA LED", "E27 5W", "13", "4000K · versión dimerizable 3000K"),
+    ("LÁMPARAS Y TUBOS LED", "BULBO LED A60", "E27 12W DIMERIZABLE", "14", "3000K · dimerizable"),
+    ("LÁMPARAS Y TUBOS LED", "TUBO T5 LED", "18W 1149 mm", "15", "4000K · conexión a una punta"),
+    ("LÁMPARAS Y TUBOS LED", "BULBO A60 LED", "E27 12V/24V 9W", "16", "2 temperaturas · 12V y 24V"),
+    ("ARTEFACTOS", "SPOT FIJO EMBUTIR", "COB 3W Ø38 mm", "17", "aro blanco o negro · fijo"),
+    ("ARTEFACTOS", "SPOT MÓVIL EMBUTIR", "COB 3W Ø52 mm", "18", "aro blanco o negro · orientable"),
+    ("ARTEFACTOS", "SPOT 12V MÓVIL", "3W / 2,5W", "19", "negro, blanco y plateado · caja individual"),
+    ("ARTEFACTOS", "PLAFÓN LED ALUMINIO", "12V 2,5W Ø60 mm", "20", "2 temperaturas"),
+    ("ARTEFACTOS", "PANEL REDONDO EMBUTIR", "12V 3W Ø83 mm BLANCO", "21", "2 temperaturas"),
+    ("ARTEFACTOS", "PANEL REDONDO EMBUTIR", "12V 3W Ø70 mm NEGRO", "22", "2 temperaturas · corte Ø58 mm"),
+    ("ARTEFACTOS", "SPOT MINI EMBUTIR REDONDO", "PARA MINIDICROICA", "23", "blanco o blanco/negro · sin zócalo ni lámpara"),
+    ("ARTEFACTOS", "MINISPOT COB ALUMINIO", "12V 1W Ø20 mm", "24", "blanco, negro y plateado · 4000K"),
+    ("ARTEFACTOS", "REFLECTOR EXTERIOR LED", "12V · IP65", "25", "10W, 30W y 50W"),
+    ("ARTEFACTOS", "APLIQUE CURVO EXTERIOR", "GU10 · IP65", "26", "1 o 2 luces · lámpara no incluida"),
+    ("ARTEFACTOS", "APLIQUE RECTO EXTERIOR", "GU10 · IP65", "27", "1 o 2 luces · lámpara no incluida"),
+    ("ARTEFACTOS", "ESTACA ALUMINIO", "1 x GU10 · IP67", "28", "para dicroica o minidicroica · lámpara no incluida"),
+    ("ARTEFACTOS", "ESTACA SOLAR LED", "28 LED · IP67", "29", "autónoma, sin conexión a 220V"),
+    ("FUENTES SWITCHING", "FUENTE SWITCHING METÁLICA SLIM", "12V / 24V", "30", "12V de 1 a 16 A · 24V de 1 a 10 A"),
 ]
 
 
@@ -273,28 +273,56 @@ def divisor(pdf, fuentes, logo, seccion, cuantas):
     return hoja(pdf, _recursos(pdf, fuentes, logo), b"\n".join(partes))
 
 
-def indice(pdf, fuentes, logo, filas):
-    """filas: lista de ('seccion', nombre) y ('ficha', titulo, detalle, pagina)."""
+def indice(pdf, fuentes, logo, filas, destinos):
+    """La página de índice, con un enlace por renglón.
+
+    `filas` mezcla ('seccion', nombre) con ('ficha', título, detalle, nota, página), y
+    `destinos` tiene el objeto de página al que salta cada ficha. El enlace se hace sobre
+    **todo el ancho del renglón**, no sólo sobre el texto: en un celular hay que poder
+    tocarlo sin apuntar fino.
+
+    Los 30 renglones más las tres cabeceras entran justo en una página, así que los pasos
+    están medidos para eso: tocar los cuerpos obliga a recalcularlos.
+    """
     negrita, normal = fuentes
     partes = [b"1 1 1 rg 0 0 %.2f %.2f re f" % (ANCHO, ALTO),
               encabezado(fuentes),
-              texto("/F1", "Índice", MARGEN, ALTO - 150, 34),
-              regla(MARGEN, ALTO - 176, MARGEN + 120)]
-    y = ALTO - 224
+              texto("/F1", "Índice", MARGEN, ALTO - 128, 30),
+              regla(MARGEN, ALTO - 150, MARGEN + 110)]
+    enlaces = []
+    # la aclaración va alineada a la derecha, pegada a la columna de números: así el
+    # renglón largo se acomoda solo en vez de chocar contra una columna fija
+    x_nota_fin = ANCHO - MARGEN - 30
+    y = ALTO - 196
     for fila in filas:
         if fila[0] == "seccion":
-            y -= 10
-            partes.append(texto("/F1", fila[1], MARGEN, y, 10, GRIS, letra=2.2))
-            y -= 20
-        else:
-            _, titulo, detalle, pag = fila
-            partes.append(texto("/F2", titulo, MARGEN + 10, y, 11))
-            x = MARGEN + 10 + normal.mide(titulo, 11) + 9
-            partes.append(texto("/F2", detalle, x, y, 8.5, GRIS))
-            n = str(pag)
-            partes.append(texto("/F2", n, ANCHO - MARGEN - normal.mide(n, 10), y, 10, GRIS))
-            y -= 19
-    return hoja(pdf, _recursos(pdf, fuentes, logo), b"\n".join(partes))
+            y -= 8
+            partes.append(texto("/F1", fila[1], MARGEN, y, 9, GRIS, letra=2.0))
+            y -= 17
+            continue
+        _, titulo, detalle, nota, pag = fila
+        partes.append(texto("/F2", titulo, MARGEN + 9, y, 10.5))
+        x = MARGEN + 9 + normal.mide(titulo, 10.5) + 7
+        partes.append(texto("/F2", detalle, x, y, 7.8, GRIS))
+        if nota:
+            xn = x_nota_fin - normal.mide(nota, 7.5)
+            if xn < x + normal.mide(detalle, 7.8) + 12:
+                print(f"    ¡se pisan! {titulo}: la aclaración no entra en el renglón")
+            partes.append(texto("/F2", nota, xn, y, 7.5, (0.58, 0.58, 0.58)))
+        n = str(pag)
+        partes.append(texto("/F2", n, ANCHO - MARGEN - normal.mide(n, 10), y, 10, GRIS))
+        enlaces.append((MARGEN, y - 4.5, ANCHO - MARGEN, y + 11.5, destinos[pag]))
+        y -= 17.2
+
+    pagina = hoja(pdf, _recursos(pdf, fuentes, logo), b"\n".join(partes))
+    pagina.obj.Annots = Array([
+        pdf.make_indirect(Dictionary(
+            Type=Name.Annot, Subtype=Name.Link,
+            Rect=Array([x0, y0, x1, y1]),
+            Border=Array([0, 0, 0]), F=4,
+            Dest=Array([destino, Name("/XYZ"), 0, ALTO, 0])))
+        for x0, y0, x1, y1, destino in enlaces])
+    return pagina
 
 
 # ---------------------------------------------------------------- armado
@@ -304,21 +332,26 @@ def main(salida=SALIDA):
     presentes = [f for f in FICHAS if f[3] and (PAGINAS / f"{f[3]}.png").exists()]
     faltan = [f for f in FICHAS if f not in presentes]
 
-    # paginación: tapa, índice, y por sección una portadilla más dos páginas por ficha
     secciones = []
-    for seccion, _, _, _ in FICHAS:
-        if seccion not in secciones:
-            secciones.append(seccion)
+    for ficha in FICHAS:
+        if ficha[0] not in secciones:
+            secciones.append(ficha[0])
+
+    # Paginación: tapa, índice, y por sección una portadilla más dos páginas por ficha.
+    # El índice se compone **al final** y se inserta en el lugar 2, porque sus enlaces
+    # apuntan a objetos de página que antes no existen.
     numero, mapa, filas = 3, {}, []
+    pagina_portadilla = {}
     for seccion in secciones:
         delas = [f for f in presentes if f[0] == seccion]
         if not delas:
             continue
         filas.append(("seccion", seccion))
-        numero += 1                                   # la portadilla
+        pagina_portadilla[seccion] = numero
+        numero += 1
         for ficha in delas:
             mapa[ficha[3]] = numero
-            filas.append(("ficha", ficha[1], ficha[2], numero))
+            filas.append(("ficha", ficha[1], ficha[2], ficha[4], numero))
             numero += 2
 
     pdf = pikepdf.Pdf.new()
@@ -327,7 +360,7 @@ def main(salida=SALIDA):
     logo = logo_negro(pdf)
 
     portada(pdf, fuentes, logo)
-    indice(pdf, fuentes, logo, filas)
+    destinos = {}
     for seccion in secciones:
         delas = [f for f in presentes if f[0] == seccion]
         if not delas:
@@ -335,16 +368,39 @@ def main(salida=SALIDA):
         divisor(pdf, fuentes, logo, seccion, len(delas))
         for ficha in delas:
             arreglo = PAGINAS / f"{ficha[3]}.png"
+            primera = None
             for mitad in (0, 1):
-                hoja_imagen(pdf, fuentes, logo, arreglo, mitad)
+                hecha = hoja_imagen(pdf, fuentes, logo, arreglo, mitad)
+                primera = primera or hecha
+            destinos[mapa[ficha[3]]] = primera.obj
             print(f"  pág {mapa[ficha[3]]:3d}-{mapa[ficha[3]]+1:<3d} {ficha[1]} {ficha[2]}")
 
+    hoja_indice = indice(pdf, fuentes, logo, filas, destinos)
+    pdf.pages.remove(hoja_indice)
+    pdf.pages.insert(1, hoja_indice)
+
+    # Marcadores, para que el PDF también se navegue desde el panel del lector.
+    # `OutlineItem` espera el número de página contando desde cero, no el objeto: pasarle
+    # el objeto deja un /Dest que el lector no entiende.
+    with pdf.open_outline() as esquema:
+        for seccion in secciones:
+            delas = [f for f in presentes if f[0] == seccion]
+            if not delas:
+                continue
+            rama = pikepdf.OutlineItem(seccion, pagina_portadilla[seccion] - 1)
+            for ficha in delas:
+                rama.children.append(pikepdf.OutlineItem(
+                    f"{ficha[1]} {ficha[2]}", mapa[ficha[3]] - 1))
+            esquema.root.append(rama)
+
     pdf.save(salida)
+
     print(f"\n{len(pdf.pages)} páginas -> {salida}")
+    print(f"fichas en el índice: {len(mapa)} de {len(FICHAS)}")
     if faltan:
         print(f"\nfaltan {len(faltan)} fichas por diseñar:")
-        for seccion, titulo, detalle, _ in faltan:
-            print(f"  [{seccion}] {titulo} {detalle}")
+        for ficha in faltan:
+            print(f"  [{ficha[0]}] {ficha[1]} {ficha[2]}")
     return salida
 
 

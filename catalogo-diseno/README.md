@@ -14,8 +14,25 @@ Las páginas de producto **vienen diseñadas de afuera**, una imagen por ficha, 
 `paginas/`. Cada archivo es un **pliego de dos páginas A4 verticales pegadas lado a lado**,
 así que el armador lo parte al medio y cada mitad va a una página del PDF.
 
+**Están las 30 fichas.** Entre todas suman los 82 códigos del catálogo técnico: 35 en
+LÁMPARAS, 32 en ARTEFACTOS y 15 en FUENTES. Verificado ficha por ficha contra la lista de
+modelos que muestra cada página, no contra lo que debería haber.
+
 Tapa, índice y portadillas se componen acá con **texto real**, no como imagen: son las
-únicas páginas que no vinieron diseñadas. La tipografía es Outfit, que es la que usan los
+únicas páginas que no vinieron diseñadas.
+
+**El índice es interactivo.** Cada renglón lleva un enlace que salta a la página de esa
+ficha, sobre todo el ancho del renglón y no sólo sobre el texto: en un celular hay que
+poder tocarlo sin apuntar fino. Además el PDF trae marcadores, así que también se navega
+desde el panel lateral del lector. Los enlaces se arman **después** de crear las páginas y
+el índice se inserta en el lugar 2, porque antes los objetos de página a los que apuntan no
+existen. Los marcadores van por número de página contando desde cero: pasarle el objeto a
+`OutlineItem` deja un destino que el lector no entiende.
+
+Cada renglón del índice lleva además una **aclaración** —cuántas temperaturas tiene, si hay
+versión dimerizable, si no incluye lámpara o zócalo—. No están deducidas: salen de leer la
+lista de modelos de cada página. Van alineadas a la derecha para que el renglón largo se
+acomode solo, y el armador avisa por consola si alguna no entra. La tipografía es Outfit, que es la que usan los
 títulos de las páginas generadas, incrustada entera con codificación WinAnsi —alcanza para
 el español, incluidos Ø y ·—.
 
