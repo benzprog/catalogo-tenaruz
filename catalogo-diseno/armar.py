@@ -23,7 +23,7 @@ import zlib
 import numpy as np
 import pikepdf
 from fontTools.ttLib import TTFont
-from PIL import Image
+from PIL import Image, ImageFilter
 from pikepdf import Array, Dictionary, Name, Stream
 
 BASE = pathlib.Path(__file__).resolve().parent
@@ -145,15 +145,21 @@ def regla(x0, y, x1, color=LINEA, grosor=0.6):
 # ---------------------------------------------------------------- imágenes
 
 
-def incrustar(pdf, imagen, ancho_max=1600, calidad=92):
+def incrustar(pdf, imagen, ancho_max=4000, calidad=92):
     """Embebe la imagen. Con `calidad` va en JPEG; con `calidad=None`, sin pérdida.
 
     Acá sí conviene JPEG, al revés que en el catálogo técnico: allá las fotos eran recortes
     pegados sobre un panel liso y el ruido de la compresión se veía como un recuadro
     fantasma contra ese fondo plano. Acá la página **entera** es la imagen, no hay fondo
     debajo con el que pueda no coincidir. Sin comprimir el archivo da 30 MB y no entra en un
-    mail; en JPEG 92 da menos de 3 MB y la diferencia no se ve.
+    mail; en JPEG 92 pesa una fracción y la diferencia no se ve: comparadas al 300 % contra el PNG
+    original, las calidades 88, 92 y 96 son indistinguibles, así que subirla sólo pesa.
+    La calidad va alta porque lo que más sufre con el JPEG son los bordes del texto, que
+    en estas páginas ya vienen justos.
     """
+    # El tope está alto a propósito: cualquier reducción se come el poco detalle que
+    # tienen estas páginas. Con tope 1600 las dos del reflector, que vienen a 1800, caían
+    # de 218 a 194 dpi, justo las únicas nítidas del catálogo.
     if imagen.width > ancho_max:
         alto = round(imagen.height * ancho_max / imagen.width)
         imagen = imagen.resize((ancho_max, alto), Image.LANCZOS)
@@ -207,6 +213,13 @@ def hoja_imagen(pdf, fuentes, logo, arreglo, mitad):
     corte = w // 2
     im = im.crop((0, 0, corte, h)) if mitad == 0 else im.crop((corte, 0, w, h))
     fondo = borde(np.asarray(im).astype(float))
+
+    # Enfoque suave sólo donde hace falta. A 90 dpi un texto de 8 pt mide unos 10 px de
+    # alto y se ve blando; la máscara no inventa detalle, pero marca el borde y se lee
+    # mejor. Arriba de 150 dpi el texto ya está nítido y enfocarlo sólo agrega halo.
+    dpi = im.width / ANCHO * 72
+    if dpi < 150:
+        im = im.filter(ImageFilter.UnsharpMask(radius=1.0, percent=80, threshold=2))
 
     escala = min(ANCHO / im.width, ALTO / im.height)
     cw, ch = im.width * escala, im.height * escala
