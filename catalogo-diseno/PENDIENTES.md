@@ -3,13 +3,13 @@
 El cliente las va generando; cuando avise **LISTO** se vuelve a correr `armar.py` y la
 paginación y el índice se recalculan solos.
 
-**Van 28 de las 30 fichas. Faltan 2.**
+**Van 29 de las 30 fichas. Falta 1.**
 
 | # | ficha | sección | estado |
 |---|---|---|---|
 | 01 | **DICROICA LED GU10 7W** | LÁMPARAS | **falta** |
 | 22 | PANEL REDONDO EMBUTIR 12V 3W Ø70 mm NEGRO | ARTEFACTOS | recibida · 96 dpi |
-| 23 | **SPOT MINI EMBUTIR REDONDO PARA MINIDICROICA** | ARTEFACTOS | **falta** |
+| 23 | SPOT MINI EMBUTIR REDONDO PARA MINIDICROICA | ARTEFACTOS | recibida · 90 dpi |
 | 24 | MINISPOT COB ALUMINIO 12V 1W Ø20 mm | ARTEFACTOS | recibida · 121 dpi |
 | 25 | REFLECTOR EXTERIOR LED 12V · IP65 | ARTEFACTOS | recibida · **218 dpi** |
 | 26 | APLIQUE CURVO EXTERIOR GU10 · IP65 | ARTEFACTOS | recibida · 90 dpi |
@@ -26,6 +26,7 @@ paginación y el índice se recalculan solos.
 | 25 | `TZ-FL12V-10W-3K`, `TZ-FL12V-30W-6K` | están |
 | 28 | `TZ-ESTAL-GU10`, `TZ-ESTAL-GU10-MINI` | están |
 | 29 | `TZ-SLS007-3K` | está |
+| 23 | `TZ-SPOTMINI-BL`, `TZ-SPOTMINI-NG` | están, y coinciden medidas y «sin zócalo» |
 
 ## Resolución: dispar
 
