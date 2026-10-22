@@ -3,7 +3,7 @@
 El cliente las va generando; cuando avise **LISTO** se vuelve a correr `armar.py` y la
 paginación y el índice se recalculan solos.
 
-**Van 27 de las 30 fichas. Faltan 3.**
+**Van 28 de las 30 fichas. Faltan 2.**
 
 | # | ficha | sección | estado |
 |---|---|---|---|
@@ -15,7 +15,7 @@ paginación y el índice se recalculan solos.
 | 26 | APLIQUE CURVO EXTERIOR GU10 · IP65 | ARTEFACTOS | recibida · 90 dpi |
 | 27 | APLIQUE RECTO EXTERIOR GU10 · IP65 | ARTEFACTOS | recibida · 90 dpi |
 | 28 | ESTACA ALUMINIO 1 x GU10 · IP67 | ARTEFACTOS | recibida · 94 dpi |
-| 29 | **ESTACA SOLAR LED 28 LED · IP67** | ARTEFACTOS | **falta** |
+| 29 | ESTACA SOLAR LED 28 LED · IP67 | ARTEFACTOS | recibida · 90 dpi |
 
 ## Códigos verificados contra la planilla
 
@@ -25,6 +25,7 @@ paginación y el índice se recalculan solos.
 | 24 | `TZ-TDC018-4K`, `TZ-TDC019-4K`, `TZ-TDC010-4K` | están; blanco, negro y plateado en su lugar |
 | 25 | `TZ-FL12V-10W-3K`, `TZ-FL12V-30W-6K` | están |
 | 28 | `TZ-ESTAL-GU10`, `TZ-ESTAL-GU10-MINI` | están |
+| 29 | `TZ-SLS007-3K` | está |
 
 ## Resolución: dispar
 
