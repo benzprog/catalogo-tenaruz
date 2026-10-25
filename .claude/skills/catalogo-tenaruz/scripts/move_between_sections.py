@@ -17,11 +17,11 @@ import pikepdf
 from PIL import Image
 from pikepdf import Dictionary, Name, Stream
 
-sys.path.insert(0, "/home/user/nicolas-logistics-portfolio/.claude/skills/catalogo-tenaruz/scripts")
+sys.path.insert(0, str(__import__("pathlib").Path(__file__).parent))
 from build_product_page import ESTILOS, PRODUCTO, build  # noqa: E402
 from catalog import TOP, Catalog  # noqa: E402
 
-W = "/tmp/claude-0/-home-user-nicolas-logistics-portfolio/66a49b79-0302-5de9-8277-30d625b04b95/scratchpad/work"
+W = "."
 SRC = f"{W}/output/CATALOGO_TENARUZ_2026_FINAL.pdf"
 OUT = f"{W}/output/CATALOGO_TENARUZ_2026_ARTEFACTOS.pdf"
 

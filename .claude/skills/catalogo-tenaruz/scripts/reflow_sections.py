@@ -15,7 +15,7 @@ import sys
 import pikepdf
 from pikepdf import Dictionary, Name, Stream
 
-sys.path.insert(0, "/home/user/nicolas-logistics-portfolio/.claude/skills/catalogo-tenaruz/scripts")
+sys.path.insert(0, str(__import__("pathlib").Path(__file__).parent))
 from catalog import BOTTOM, TOP, Catalog  # noqa: E402
 
 import simplefont  # noqa: E402
