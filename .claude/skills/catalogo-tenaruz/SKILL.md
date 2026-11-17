@@ -9,6 +9,89 @@ El catálogo se generó con **wkhtmltopdf** desde HTML. No existe el archivo fue
 tenemos el PDF. Por eso toda edición se hace **inyectando contenido nativo en el content
 stream del PDF**, reutilizando las fuentes que ya están embebidas en el archivo.
 
+## Cómo trabaja el cliente
+
+Reglas que puso él y que valen para todo el trabajo de catálogos y listas. Saberlas antes de
+empezar ahorra rehacer.
+
+- **No inventes ni mezcles.** Sólo datos que te dio. Si falta uno, dejá el hueco y preguntá;
+  no lo deduzcas de un producto parecido.
+- **Los lúmenes no salen del vataje.** Falta la eficacia (60–120 lm/W) y los volts no entran
+  en la cuenta. Sin medición, la fila no va: mejor sacarla que dejarla con un guion.
+- **Preguntá antes de terminar, no después.** Textual: «si no entendés algo no inventes,
+  preguntá».
+- **Una instrucción dada vale para siempre.** Si ya dijo «sacá lo de venta por bulto cerrado,
+  se vende la cantidad que quiera el cliente», se obvia en todo lo que venga. No se la hagas
+  repetir.
+- **Entrega por tandas.** Manda fotos y cambios de a uno y avisa **LISTO** cuando está todo.
+  Hasta entonces **no se toca el PDF**: se anotan en un registro de pendientes (`PEDIDOS.md`)
+  con qué es cada cambio, qué archivo lo resuelve y qué falta.
+- **Si marca algo dos veces, es su decisión.** Si planteaste una duda y él la repite o avisa
+  LISTO sin contestarla, se aplica igual y se deja anotado qué quedó sin confirmar.
+- **Los archivos se mandan, no se mencionan.** Cada entregable va como archivo, y cuando son
+  varios, de a uno y rotulado.
+
+## Antes de aplicar una foto que te mandan
+
+Tres chequeos baratos que ya evitaron errores reales. Van antes de tocar nada.
+
+**1. ¿Es un duplicado?** `sha1sum` de la foto nueva contra las guardadas. Llegaron dos veces
+archivos idénticos byte por byte a otro producto —uno era el GU10 mandado como MR11—. Si el
+hash repite, no la guardes: avisá.
+
+**2. ¿Es el producto que dice?** Compará contra las **medidas declaradas en la ficha**, no
+contra la foto que ya estaba: parecerse a la anterior sólo prueba que son parecidas, y así se
+me pasó una. Lo que mejor separa productos de la misma familia es la **relación
+cabeza/cilindro del zócalo**, que no depende de la escala ni del encuadre:
+
+| foto | cabeza / cilindro |
+|---|---|
+| minidicroica Ø35 | **1,62** |
+| dicroica GU10 Ø50 | **2,32** |
+
+En tomas de tres cuartos usá el paso de los pines como regla: **GU10 = 10 mm** y **G4 = 4 mm**
+entre centros. Así se verificó que el bipin G4 cerraba —9,4 mm de cuerpo contra 10 declarados—
+y que dos fotos del MR11 daban 2,05 y 2,16, o sea que no eran el Ø35.
+
+**3. ¿La temperatura de color es la que dice?** Promediá **R − B** sobre la parte encendida:
+cálido da positivo, frío negativo, y el orden entre variantes tiene que respetarse. El PLL dio
++32 / +7 / −16 para 3000K / 4000K / 6000K. Detecta una variante cargada en el bloque
+equivocado.
+
+Si algo no cierra, **decilo con el número** y no lo apliques. Y si el método tiene un punto
+débil, decilo también: blanco contra plateado en aluminio no se distingue por luminancia
+(179 vs 175, demasiado cerca), así que ahí no afirmes nada.
+
+## Reemplazar muchas fotos de una sola pasada
+
+`catalogo/fotos.py` hace el reemplazo masivo: lee el original intacto y escribe `_paso0.pdf`,
+el primer paso de `catalogo/build.py`. Va **primero** porque `artefactos.py` inserta páginas y
+correría la numeración.
+
+Reescribe **sólo el `cm` interior** de cada foto; el de afuera lo comparte toda la página.
+Tres trampas que costaron:
+
+1. **La matriz de afuera tiene `D` negativo.** El cuadrado unidad entra al revés: `unit(0,0)`
+   cae en el **pie** de la caja, no en el techo, y con el signo equivocado las lámparas salen
+   cabeza abajo. Para una caja `(X0,Y0,X1,Y1)` con la matriz externa `[A,0,0,D,E,F]`:
+   `a=(X1-X0)/A`, `d=(Y1-Y0)/D`, `e=(X0-E)/A`, `f=(Y0-F)/D`.
+2. **Los paneles son de dos negros.** Los bloques de variante van sobre `#1a1a1a` y los slots
+   de foto única sobre `#1e1e1e`. Componer sobre el que no es deja el recuadro de la caja a la
+   vista. Medí el color al lado de la foto; no lo supongas.
+3. **No pases por `recorte.py` una foto que ya trae alfa.** Ese módulo separa el producto de un
+   fondo blanco con un umbral, y el umbral convierte el degradé del haz en un contorno binario:
+   el haz termina cortado en un trapecio de borde recto sobre el panel liso. Componer con el
+   alfa lo resuelve solo y respeta el antialias del contorno.
+
+**El tamaño sale de igualar el área de la lámpara**, no cada medida por separado. Forzar las
+dos medidas infla las tomas de tres cuartos, que son anchas por naturaleza: el MR11 terminaba
+2,4 veces más ancho que la foto que reemplazaba y tocando el borde del panel.
+
+El recuadro de la lámpara de cada foto está **medido a mano** sobre una grilla al 10 %. Los
+detectores automáticos no sirvieron: el haz es opaco, tiene el mismo color que el lente y en
+varias tomas es tan liso como el cuerpo blanco, así que por alfa, por saturación o por
+gradiente las tres tomas de un mismo producto daban recuadros distintos.
+
 ## La regla que evita el 90% de los errores
 
 **Nunca estimes tamaños de fuente mirando el render. Leelos del content stream.**
